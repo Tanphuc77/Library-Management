@@ -1,0 +1,172 @@
+D:\Library Management\LibraryManagement\LibraryManagement\bin\LibraryManagement.dll.config
+D:\Library Management\LibraryManagement\LibraryManagement\bin\LibraryManagement.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\LibraryManagement.pdb
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\csc.exe
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\csc.exe.config
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\csc.rsp
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\csi.exe
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\csi.exe.config
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\csi.rsp
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.AppContext.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Collections.Immutable.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Console.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Globalization.Calendars.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.IO.Compression.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.IO.FileSystem.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Net.Http.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Net.Sockets.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Reflection.Metadata.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.ValueTuple.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Xml.XPath.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\vbc.exe
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\vbc.exe.config
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\vbc.rsp
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\VBCSCompiler.exe
+D:\Library Management\LibraryManagement\LibraryManagement\bin\roslyn\VBCSCompiler.exe.config
+D:\Library Management\LibraryManagement\LibraryManagement\bin\Antlr3.Runtime.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\EntityFramework.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\EntityFramework.SqlServer.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\Microsoft.Web.Infrastructure.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\Newtonsoft.Json.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.Helpers.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.Mvc.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.Optimization.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.Razor.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.WebPages.Deployment.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.WebPages.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.WebPages.Razor.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\WebGrease.dll
+D:\Library Management\LibraryManagement\LibraryManagement\bin\EntityFramework.xml
+D:\Library Management\LibraryManagement\LibraryManagement\bin\EntityFramework.SqlServer.xml
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.Helpers.xml
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.Mvc.xml
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.Optimization.xml
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.Razor.xml
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.WebPages.xml
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.WebPages.Deployment.xml
+D:\Library Management\LibraryManagement\LibraryManagement\bin\System.Web.WebPages.Razor.xml
+D:\Library Management\LibraryManagement\LibraryManagement\bin\Newtonsoft.Json.xml
+D:\Library Management\LibraryManagement\LibraryManagement\bin\Antlr3.Runtime.pdb
+D:\Library Management\LibraryManagement\LibraryManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Library Management\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.AssemblyReference.cache
+D:\Library Management\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
+D:\Library Management\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CopyComplete
+D:\Library Management\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.dll
+D:\Library Management\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
+D:\LibraryManagementASP\LibraryManagement\bin\LibraryManagement.dll.config
+D:\LibraryManagementASP\LibraryManagement\bin\LibraryManagement.dll
+D:\LibraryManagementASP\LibraryManagement\bin\LibraryManagement.pdb
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\csc.exe
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\csc.exe.config
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\csc.rsp
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\csi.exe
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\csi.exe.config
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\csi.rsp
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\Microsoft.Managed.Core.targets
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.AppContext.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Collections.Immutable.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Console.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Globalization.Calendars.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.IO.Compression.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.IO.FileSystem.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Net.Http.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Net.Sockets.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Reflection.Metadata.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.ValueTuple.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Xml.XmlDocument.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Xml.XPath.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\vbc.exe
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\vbc.exe.config
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\vbc.rsp
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\VBCSCompiler.exe
+D:\LibraryManagementASP\LibraryManagement\bin\roslyn\VBCSCompiler.exe.config
+D:\LibraryManagementASP\LibraryManagement\bin\Antlr3.Runtime.dll
+D:\LibraryManagementASP\LibraryManagement\bin\EntityFramework.dll
+D:\LibraryManagementASP\LibraryManagement\bin\EntityFramework.SqlServer.dll
+D:\LibraryManagementASP\LibraryManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\LibraryManagementASP\LibraryManagement\bin\Microsoft.Web.Infrastructure.dll
+D:\LibraryManagementASP\LibraryManagement\bin\Newtonsoft.Json.dll
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.Helpers.dll
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.Mvc.dll
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.Optimization.dll
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.Razor.dll
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.WebPages.Deployment.dll
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.WebPages.dll
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.WebPages.Razor.dll
+D:\LibraryManagementASP\LibraryManagement\bin\WebGrease.dll
+D:\LibraryManagementASP\LibraryManagement\bin\EntityFramework.xml
+D:\LibraryManagementASP\LibraryManagement\bin\EntityFramework.SqlServer.xml
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.Helpers.xml
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.Mvc.xml
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.Optimization.xml
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.Razor.xml
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.WebPages.xml
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.WebPages.Deployment.xml
+D:\LibraryManagementASP\LibraryManagement\bin\System.Web.WebPages.Razor.xml
+D:\LibraryManagementASP\LibraryManagement\bin\Newtonsoft.Json.xml
+D:\LibraryManagementASP\LibraryManagement\bin\Antlr3.Runtime.pdb
+D:\LibraryManagementASP\LibraryManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\LibraryManagementASP\LibraryManagement\obj\Debug\LibraryManagement.csproj.AssemblyReference.cache
+D:\LibraryManagementASP\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
+D:\LibraryManagementASP\LibraryManagement\obj\Debug\LibraryManagement.csproj.CopyComplete
+D:\LibraryManagementASP\LibraryManagement\obj\Debug\LibraryManagement.dll
+D:\LibraryManagementASP\LibraryManagement\obj\Debug\LibraryManagement.pdb
+D:\LibraryManagementASP\LibraryManagement\bin\BCrypt.Net.dll
+D:\LibraryManagementASP\LibraryManagement\bin\BCrypt.Net.xml
+D:\LibraryManagementASP\LibraryManagement\bin\PagedList.dll
+D:\LibraryManagementASP\LibraryManagement\bin\PagedList.Mvc.dll
+D:\LibraryManagementASP\LibraryManagement\bin\PagedList.xml
+D:\LibraryManagementASP\LibraryManagement\bin\PagedList.Mvc.xml

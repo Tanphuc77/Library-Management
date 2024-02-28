@@ -1,0 +1,57 @@
+﻿@model IEnumerable<LibraryManagement.Models.MUONTRA>
+
+@{
+    ViewBag.Title = "NotApprovedBook";
+    Layout = "~/Views/Layout/Admin.cshtml";
+    ViewBag.active = 2;
+}
+@Html.Partial("~/Views/Menu/MenuPartial.cshtml")
+<div class="main">
+    @Html.Partial("~/Views/Search/Topbar.cshtml")
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <tr>
+                    <th>
+                        Tên đọc giả
+                    </th>
+                    <th>
+                        Ngày mượn
+                    </th>
+                    <th>
+                        Tình trạng mượn
+                    </th>
+                    <th>Chức năng</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DOCGIA.HOTEN)
+                        </td>
+                        <td>
+                            @item.NGAYMUON
+                        </td>
+                        <td>
+                            @if (@item.TRANGTHAIMUON == false)
+                            {
+                                <span style="color:red">Chưa duyệt</span>
+                            }
+                            else
+                            {
+                                <span style="color:green">Đã duyệt</span>
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("Duyệt phiếu mượn sách", "DuyetPhieuMuon", new { id = item.MAMUON }, new { @class = "edit-button" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+

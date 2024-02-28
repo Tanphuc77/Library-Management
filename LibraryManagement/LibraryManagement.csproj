@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B6217051-0F74-4E3C-AC60-D8261568A803}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LibraryManagement</RootNamespace>
+    <AssemblyName>LibraryManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44319</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BookcategoryController.cs" />
+    <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\MuontraController.cs" />
+    <Compile Include="Controllers\LibrarianController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\BookpublisherController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CHITIETMUONTRA.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DOCGIA.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Metadata\Book.cs" />
+    <Compile Include="Models\Metadata\Docgia.cs" />
+    <Compile Include="Models\Metadata\Nhaxuatban.cs" />
+    <Compile Include="Models\Metadata\Thuthu.cs" />
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MUONTRA.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHACUNGCAP.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHAXUATBAN.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PHIEUNHAP.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SACH.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\THELOAI.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\THUTHU.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VIPHAM.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assest\css\style.css" />
+    <Content Include="assest\db\Lirbary.sql" />
+    <Content Include="assest\imgs\customer01.jpg" />
+    <Content Include="assest\imgs\customer02.jpg" />
+    <Content Include="assest\imgs\Product\109d8de899202f32d4c0f52c7d9e91f7.jpg" />
+    <Content Include="assest\imgs\Product\24de6e7ed9352a2ca7139fc1becd158a.jpg" />
+    <Content Include="assest\imgs\Product\4085418b19da747d1585c9c5a604fb20.jpg" />
+    <Content Include="assest\imgs\Product\577a6193d915a8d44d9de9238cbf615f.jpg" />
+    <Content Include="assest\imgs\Product\5bf87088791bcd0d58e3400636f472c4.jpg" />
+    <Content Include="assest\imgs\Product\6ab02f2b09616d832a01301c7bc6f6b9.jpg" />
+    <Content Include="assest\imgs\Product\9317719b0eaad9b320c281de6834c734.jpg" />
+    <Content Include="assest\imgs\Product\a31d9565e4450789239f6cdb1a6d23c0.jpg" />
+    <Content Include="assest\imgs\Product\b1e4fa3934255da8233c3ff147da6a74.jpg" />
+    <Content Include="assest\imgs\Product\d2ccab75a7c7df6b2722c1971619c406.jpg" />
+    <Content Include="assest\imgs\Product\db4f09b6ee8bc317f097ebcca1933a2d.jpg" />
+    <Content Include="assest\imgs\Product\e96ee9fe9a1ad59daf858e3d16a94c3c.jpg" />
+    <Content Include="assest\imgs\Product\fc540667ae1179039b8969b5d29f25d8.jpg" />
+    <Content Include="assest\imgs\istockphoto-1140611970-612x612.jpg" />
+    <Content Include="assest\js\CheckImage.js" />
+    <Content Include="assest\js\confirmDelete.js" />
+    <Content Include="assest\js\main.js" />
+    <Content Include="assest\js\Textareat.js" />
+    <Content Include="assest\tinymce\js\tinymce\icons\default\icons.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\license.txt" />
+    <Content Include="assest\tinymce\js\tinymce\models\dom\model.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\accordion\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\emoticons\js\emojiimages.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\emoticons\js\emojiimages.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\emoticons\js\emojis.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\emoticons\js\emojis.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\ar.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\bg_BG.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\ca.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\cs.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\da.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\de.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\el.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\en.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\es.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\eu.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\fa.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\fi.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\fr_FR.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\he_IL.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\hi.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\hr.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\hu_HU.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\id.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\it.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\ja.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\kk.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\ko_KR.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\ms.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\nb_NO.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\nl.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\pl.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\pt_BR.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\pt_PT.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\ro.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\ru.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\sk.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\sl_SI.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\sv_SE.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\th_TH.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\tr.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\uk.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\vi.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\zh_CN.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\js\i18n\keynav\zh_TW.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\quickbars\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\skins\content\dark\content.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\content\default\content.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\content\document\content.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\content\tinymce-5-dark\content.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\content\tinymce-5\content.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\content\writer\content.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\oxide-dark\content.inline.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\oxide-dark\content.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\oxide-dark\skin.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\oxide-dark\skin.shadowdom.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\oxide\content.inline.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\oxide\content.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\oxide\skin.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\oxide\skin.shadowdom.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\tinymce-5-dark\content.inline.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\tinymce-5-dark\content.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\tinymce-5-dark\skin.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\tinymce-5-dark\skin.shadowdom.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\tinymce-5\content.inline.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\tinymce-5\content.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\tinymce-5\skin.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\skins\ui\tinymce-5\skin.shadowdom.min.css" />
+    <Content Include="assest\tinymce\js\tinymce\themes\silver\theme.min.js" />
+    <Content Include="assest\tinymce\js\tinymce\tinymce.min.js" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="assest\tinymce\CHANGELOG.md" />
+    <Content Include="assest\tinymce\js\tinymce\langs\README.md" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Layout\Admin.cshtml" />
+    <Content Include="Views\Menu\MenuPartial.cshtml" />
+    <Content Include="Views\Book\ListBook.cshtml" />
+    <Content Include="Views\Book\CreateBook.cshtml" />
+    <Content Include="Views\Search\Topbar.cshtml" />
+    <Content Include="Views\Book\EditBook.cshtml" />
+    <Content Include="Views\Book\DetailBook.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Librarian\ListLibrarian.cshtml" />
+    <Content Include="Views\Librarian\CreateLibrarian.cshtml" />
+    <Content Include="Views\Librarian\EditLibrarian.cshtml" />
+    <Content Include="Views\Librarian\Notification.cshtml" />
+    <Content Include="Views\Bookpublisher\ListBookPublisher.cshtml" />
+    <Content Include="Views\Librarian\ErrorRemoveLibrarian.cshtml" />
+    <Content Include="Views\Bookpublisher\CreateBookPublisher.cshtml" />
+    <Content Include="Views\Bookpublisher\EditBookPublisher.cshtml" />
+    <Content Include="Views\Bookpublisher\ErrorRemoveBookPublisher.cshtml" />
+    <Content Include="Views\Bookcategory\ListBookcategory.cshtml" />
+    <Content Include="Views\Bookcategory\CreateBookcategory.cshtml" />
+    <Content Include="Views\Bookcategory\ErrorRemoveBookcategory.cshtml" />
+    <Content Include="Views\Bookcategory\EditBookcategory.cshtml" />
+    <Content Include="Views\User\ListUser.cshtml" />
+    <Content Include="Views\User\ErrorRemoveUser.cshtml" />
+    <Content Include="Views\User\EditUser.cshtml" />
+    <Content Include="Views\Muontra\ChuaDuyetSach.cshtml" />
+    <Content Include="Views\Muontra\DaDuyetSach.cshtml" />
+    <Content Include="Views\Muontra\DuyetPhieuMuon.cshtml" />
+    <Content Include="Views\Muontra\DaMuonSach.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="assest\tinymce\js\tinymce\tinymce.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54031</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44319/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

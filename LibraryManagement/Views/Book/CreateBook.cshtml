@@ -1,0 +1,101 @@
+﻿@model LibraryManagement.Models.SACH
+
+@{
+    ViewBag.Title = "CreateBook";
+    Layout = "~/Views/Layout/Admin.cshtml";
+    ViewBag.active = 1;
+}
+@Html.Partial("~/Views/Menu/MenuPartial.cshtml")
+<script>
+    tinymce.init({
+        selector: '#textarea'
+    });
+</script>
+<script src="~/assest/js/CheckImage.js"></script>
+<div class="main">
+    @Html.Partial("~/Views/Search/Topbar.cshtml")
+    @using (Html.BeginForm("CreateBook", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TENSACH, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.TENSACH, new { htmlAttributes = new { @class = "form-control" } })
+                    <p style="margin:13px 0 0 0;color: red">@ViewBag.Name</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TACGIA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TACGIA, new { htmlAttributes = new { @class = "form-control" } })
+                    <p style="margin:13px 0 0 0;color: red">@ViewBag.Author</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SOLUONGTON, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SOLUONGTON, new { htmlAttributes = new { @class = "form-control" } })
+                    <p style="margin:13px 0 0 0;color: red">@ViewBag.Quantity</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MOTA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <form method="post" onsubmit="return validateForm()">
+                        <textarea id="textarea" name="MOTA" class="form-control"></textarea>
+                    </form>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NGAYCAPNHAT, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NGAYCAPNHAT, new { htmlAttributes = new { @class = "form-control", @type = "date", @Value = DateTime.Now.ToString("yyyy-MM-dd") } })
+                    @Html.ValidationMessageFor(model => model.NGAYCAPNHAT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Nhà xuất bản</label>
+                <div class="col-md-10">
+                    @Html.DropDownList("MANHAXUATBAN", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MANHAXUATBAN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <labelx` class="control-label col-md-2">
+                    Thể loại<label>
+                        <div class="col-md-10">
+                            @Html.DropDownList("MATHELOAI", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MATHELOAI, "", new { @class = "text-danger" })
+                        </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HINHANH, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input id="fileInput" name="HinhAnh" type="file" onchange="validateImage()" />
+                </div>
+            </div>
+            @if (TempData["ThongBao"] != null)
+            {
+                <script>
+                    alert("@Html.Raw(TempData["ThongBao"])");
+                </script>
+            }
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lưu" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

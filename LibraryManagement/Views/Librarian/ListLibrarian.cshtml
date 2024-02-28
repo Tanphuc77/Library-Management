@@ -1,0 +1,79 @@
+﻿@model IEnumerable<LibraryManagement.Models.THUTHU>
+
+@{
+    ViewBag.Title = "ListLibrarian";
+    Layout = "~/Views/Layout/Admin.cshtml";
+    ViewBag.active = 3;
+}
+@Html.Partial("~/Views/Menu/MenuPartial.cshtml")
+<div class="main">
+    @Html.Partial("~/Views/Search/Topbar.cshtml")
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <a class="btn__primary" href="@Url.Action("CreateLibrarian", "Librarian")">Thêm mới</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TENTHUTHU)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EMAIL)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SODIENTHOAI)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.USERNAME)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TINHTRANG)
+                        </th>
+                        <th>Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TENTHUTHU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EMAIL)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SODIENTHOAI)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.USERNAME)
+                            </td>
+                            <td>
+                                @if (item.TINHTRANG == true)
+                                { <span style="color:green">Đang sử dụng</span>}
+                                else { <span style="color:red">Đã chặn</span> }
+                            </td>
+                            <td>
+                                <div class="function-cell">
+                                    @Html.ActionLink("Chỉnh sửa", "EditLibrarian", new { id = item.MATHUTHU }, new { @class = "edit-button" }) |
+                                    @Html.ActionLink("Xóa", "RemoveLibrarian", new { id = item.MATHUTHU }, new { @class = "delete-button", onclick = "return LibrarianDelete();" })
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    function LibrarianDelete() {
+        return confirm('Bạn có chắc chắn muốn xóa thủ thư này?');
+    }
+</script>

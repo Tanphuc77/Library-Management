@@ -1,0 +1,85 @@
+﻿@using LibraryManagement.Models
+@model MUONTRA
+
+@{
+    ViewBag.Title = "DuyetPhieuMuon";
+    Layout = "~/Views/Layout/Admin.cshtml";
+    ViewBag.active = 2;
+}
+@{ IEnumerable<LibraryManagement.Models.CHITIETMUONTRA> chiTietMuonTra = (IEnumerable<LibraryManagement.Models.CHITIETMUONTRA>)ViewBag.ChiTietMuonSach;}
+@Html.Partial("~/Views/Menu/MenuPartial.cshtml")
+<div class="main">
+    @Html.Partial("~/Views/Search/Topbar.cshtml")
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MAMUON)
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>STT</td>
+                                <td>
+                                    Tên đọc giả:
+                                    @Model.DOCGIA.HOTEN
+                                </td>
+                                <td>
+                                    Ngày mượn sách:
+                                    @Model.NGAYMUON
+                                </td>
+                                <td>
+                                    Tình trạng cho phép mượn sách:
+                                    <div class="form-group" style="margin-top:5px">
+                                        @Html.EditorFor(model => model.TRANGTHAIMUON)
+                                    </div>
+                                </td>
+                                <td>
+                                    Ngày trả:
+                                    <div class="form-group" style="margin-top:5px">
+                                        @Html.TextBoxFor(model => model.HANTRA, new { @class = "form-control", @type = "date" })
+                                    </div>
+                                </td>
+                            </tr>
+                            @{
+                                int stt = 1; // Khởi tạo biến đếm
+                            }
+                            @foreach (var item in chiTietMuonTra)
+                            {
+                                <tr>
+                                    <td>@stt</td>
+                                    <td>
+                                        Tên sách:
+                                        @item.TENSACH
+                                    </td>
+                                    <td>
+                                        Số lượng mượn:
+                                        @item.SOLUONGMUON
+                                    </td>
+                                    <td>
+                                        <p>Hình ảnh:</p>
+                                        <img width="150" src="@Url.Content("~/assest/imgs/Product/"+item.SACH.HINHANH)" />
+                                    </td>
+                                    <td>
+                                        Sách còn ở thư viện:
+                                        @item.SACH.SOLUONGTON
+                                    </td>
+                                </tr>
+                                stt++;
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Duyệt phiếu mượn" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+            }
+        </div>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<LibraryManagement.Models.NHAXUATBAN>
+
+@{
+    ViewBag.Title = "ListBookPublisher";
+    Layout = "~/Views/Layout/Admin.cshtml";
+    ViewBag.active = 5;
+}
+@Html.Partial("~/Views/Menu/MenuPartial.cshtml")
+<script src="~/assest/js/confirmDelete.js"></script>
+<div class="main">
+    @Html.Partial("~/Views/Search/Topbar.cshtml")
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <a class="btn__primary" href="@Url.Action("CreateBookPublisher", "BookPublisher")">Thêm mới</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <tr>
+                    <th>
+                        Tên nhà xuất bản
+                    </th>
+                    <th>
+                        Địa chỉ
+                    </th>
+                    <th>
+                        Điện thoại
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>Chức năng</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TENNHAXUATBAN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DIACHI)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DIENTHOAI)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EMAIL)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Chỉnh sửa", "EditBookPublisher", new { id = item.MANHAXUATBAN }, new { @class = "edit-button" }) |
+                            @Html.ActionLink("Xóa", "RemoveBookPublisher", new { id = item.MANHAXUATBAN }, new { @class = "delete-button", onclick = "return LibrarianDelete();" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    function LibrarianDelete() {
+        return confirm('Bạn có chắc chắn muốn xóa nhà xuất bản này?');
+    }
+</script>

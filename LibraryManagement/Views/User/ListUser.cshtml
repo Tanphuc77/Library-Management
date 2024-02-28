@@ -1,0 +1,82 @@
+﻿@model IEnumerable<LibraryManagement.Models.DOCGIA>
+
+@{
+    ViewBag.Title = "ListUesr";
+    Layout = "~/Views/Layout/Admin.cshtml";
+    ViewBag.active = 7;
+}
+@Html.Partial("~/Views/Menu/MenuPartial.cshtml")
+<div class="main">
+    @Html.Partial("~/Views/Search/Topbar.cshtml")
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.HOTEN)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.GIOITINH)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LOP)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EMAIL)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DIENTHOAI)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.USERNAME)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TINHTRANG)
+                        </th>
+                        <th>Chức năng</th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HOTEN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GIOITINH)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LOP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EMAIL)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DIENTHOAI)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.USERNAME)
+                        </td>
+                        <td>
+                            @if (@item.TINHTRANG == true)
+                            { <span style="color:green">Đang sử dụng</span>}
+                            else {<span style="color:red">Đã chặn</span>}
+                        </td>
+                        <td>
+                            @Html.ActionLink("Chỉnh sửa", "EditUser", new { id = item.MADOCGIA }, new { @class = "edit-button" }) |
+                            @Html.ActionLink("Xóa", "RemoveUser", new { id = item.MADOCGIA }, new { @class = "delete-button", onclick = "return LibrarianDelete();" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    function LibrarianDelete() {
+        return confirm('Bạn có chắc chắn muốn xóa đọc giả này?');
+    }
+</script>

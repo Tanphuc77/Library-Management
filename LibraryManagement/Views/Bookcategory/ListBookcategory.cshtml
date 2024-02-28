@@ -1,0 +1,64 @@
+﻿@model IEnumerable<LibraryManagement.Models.THELOAI>
+
+@{
+    ViewBag.Title = "ListBookcategory";
+    Layout = "~/Views/Layout/Admin.cshtml";
+    ViewBag.active = 6;
+}
+@Html.Partial("~/Views/Menu/MenuPartial.cshtml")
+<script src="~/assest/js/confirmDelete.js"></script>
+<div class="main">
+    @Html.Partial("~/Views/Search/Topbar.cshtml")
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <a class="btn__primary" href="@Url.Action("CreateBookcategory", "Bookcategory")">Thêm mới</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <tr>
+                    <th>
+                        Tên thể loại
+                    </th>
+                    <th>
+                        Tình trạng
+                    </th>
+                    <th>Chức năng</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TENTHELOAI)
+                        </td>
+                        <td>
+                            @if(item.DAXOA== false) 
+                            { 
+                                <span>Chưa xóa</span>
+                            }
+                            else 
+                            { 
+                                <span>Đã xóa</span>
+                            }
+
+                        </td>
+                        <td>
+                            @Html.ActionLink("Chỉnh sửa", "EditBookcategory", new { id = item.MATHELOAI }, new { @class = "edit-button" }) |
+                            @Html.ActionLink("Xóa", "RemoveBookcategory", new { id = item.MATHELOAI }, new { @class = "delete-button", onclick = "return LibrarianDelete();" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    function LibrarianDelete() {
+        return confirm('Bạn có chắc chắn muốn xóa thể loại này?');
+    }
+</script>

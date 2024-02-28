@@ -1,0 +1,82 @@
+﻿@using LibraryManagement.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<SACH>
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Layout/Admin.cshtml";
+    ViewBag.active = 1;
+}
+@Html.Partial("~/Views/Menu/MenuPartial.cshtml")
+<script src="~/assest/js/confirmDelete.js"></script>
+<div class="main">
+    @Html.Partial("~/Views/Search/Topbar.cshtml")
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <a class="btn__primary" href="@Url.Action("CreateBook", "Book")">Thêm mới</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Tên sách
+                        </th>
+                        <th>
+                            Tác giả
+                        </th>
+                        <th>
+                            Hình ảnh
+                        </th>
+                        <th>
+                            Nhà xuất bản
+                        </th>
+                        <th>
+                            Thể loại
+                        </th>
+                        <th>Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TENSACH)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TACGIA)
+                            </td>
+                            <td>
+                                <img src="@Url.Content("~/assest/imgs/Product/"+@item.HINHANH)" alt="Product Image" width="100px;" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NHAXUATBAN.TENNHAXUATBAN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.THELOAI.TENTHELOAI)
+                            </td>
+                            <td>
+                                <div class="function-cell">
+                                    @Html.ActionLink("Chỉnh sửa", "EditBook", new { id = item.MASACH }, new { @class = "edit-button" }) |
+                                    @Html.ActionLink("Chi tiết", "DetailBook", new { id = item.MASACH }, new { @class = "detail-button" })|
+                                    @Html.ActionLink("Xóa", "DeleteBook", new { id = item.MASACH }, new { @class = "delete-button", onclick = "return confirmDelete();" })
+
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+        <ul class="page">
+            <li class="pagination-item pagination-item--right">
+                @Html.PagedListPager(Model, Page => @Url.Action("ListBook", new { Page = Page }))
+            </li>
+        </ul>
+</div>

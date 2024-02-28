@@ -1,0 +1,86 @@
+﻿@model IEnumerable<LibraryManagement.Models.MUONTRA>
+
+@{
+    ViewBag.Title = "Acceptance";
+    Layout = "~/Views/Layout/Admin.cshtml";
+    ViewBag.active = 2.5;
+}
+@Html.Partial("~/Views/Menu/MenuPartial.cshtml")
+<div class="main">
+    @Html.Partial("~/Views/Search/Topbar.cshtml")
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <tr>
+                    <th>STT</th>
+                    <th>
+                        Ngày mượn
+                    </th>
+                    <th>
+                        Ngày trả
+                    </th>
+                    <th>
+                        Tình trạng mượn
+                    </th>
+                    <th>
+                        Tình trạng trả
+                    </th>
+                    <th>
+                        Tên đọc giả
+                    </th>
+                    <th>
+                        Tên thủ thư
+                    </th>
+                    <th>Chức năng</th>
+                </tr>
+                @{
+                    int stt = 1; // Khởi tạo biến đếm
+                }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@stt</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NGAYMUON)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HANTRA)
+                        </td>
+                        <td>
+                            @if (@item.TRANGTHAIMUON == false)
+                            {
+                                <span style="color:red">Chưa duyệt</span>
+                            }
+                            else
+                            {
+                                <span style="color:green">Đã duyệt</span>
+                            }
+                        </td>
+                        <td>
+                            @if (@item.TRANGTHAITRA == false)
+                            {
+                                <span style="color:red">Chưa trả</span>
+                            }
+                            else
+                            {
+                                <span style="color:green">Đã trả</span>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DOCGIA.HOTEN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.THUTHU.TENTHUTHU)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Chi tiết mượn trả", "EditBook", new { id = item.MAMUON }, new { @class = "edit-button" })
+                        </td>
+                    </tr>
+                    stt++;
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

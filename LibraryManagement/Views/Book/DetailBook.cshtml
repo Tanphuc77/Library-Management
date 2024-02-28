@@ -1,0 +1,101 @@
+﻿@model LibraryManagement.Models.SACH
+
+@{
+    ViewBag.Title = "DetailBook";
+    Layout = "~/Views/Layout/Admin.cshtml";
+    ViewBag.active = 1;
+}
+@Html.Partial("~/Views/Menu/MenuPartial.cshtml")
+<script>
+    tinymce.init({
+        selector: '#textarea'
+    });
+</script>
+<div class="main">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.TENSACH, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TENSACH, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TACGIA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TACGIA, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SOLUONGTON, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SOLUONGTON, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MOTA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <form method="post" onsubmit="return validateForm()">
+                        <textarea id="textarea" name="MOTA" class="form-control" readonly></textarea>
+                    </form>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NGAYCAPNHAT, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NGAYCAPNHAT, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SOLUONGMUON, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SOLUONGMUON, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LUOTXEM, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LUOTXEM, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DAXOA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.DAXOA, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Nhà xuất bản</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NHAXUATBAN.TENNHAXUATBAN, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Thể loại</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.THELOAI.TENTHELOAI, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Hình ảnh</label>
+                <div class="col-md-10">
+                    <img src="@Url.Content("~/assest/imgs/Product/"+Model.HINHANH)" alt="Product Image" width="100px" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

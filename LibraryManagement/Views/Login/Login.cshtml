@@ -1,0 +1,31 @@
+﻿@using LibraryManagement.Models
+@model THUTHU
+@{
+    ViewBag.Title = "Login";
+}
+<div class="auth__form-login">
+    <div class="login">
+        <h2>Đăng nhập</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="box">
+                <input class="input__login" type="text" name="USERNAME" placeholder="Tài khoản">
+            </div>
+            <div class="box">
+                <input class="input__login" name="PASSWORD" type="password" placeholder="Mật khẩu">
+            </div>
+            <button type="submit" class="btnlogin">Đăng nhập</button>
+        }
+        <div class="query">
+            <p>Forgot <a href="">Password</a></p>
+        </div>
+        @if (TempData["ThongBao"] != null)
+        {
+            <script>
+                alert("@Html.Raw(TempData["ThongBao"])");
+            </script>
+        }
+    </div>
+</div>
