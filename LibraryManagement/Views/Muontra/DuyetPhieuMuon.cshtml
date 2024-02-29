@@ -23,7 +23,6 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>STT</td>
                                 <td>
                                     Tên đọc giả:
                                     @Model.DOCGIA.HOTEN
@@ -45,13 +44,9 @@
                                     </div>
                                 </td>
                             </tr>
-                            @{
-                                int stt = 1; // Khởi tạo biến đếm
-                            }
                             @foreach (var item in chiTietMuonTra)
                             {
                                 <tr>
-                                    <td>@stt</td>
                                     <td>
                                         Tên sách:
                                         @item.TENSACH
@@ -61,7 +56,6 @@
                                         @item.SOLUONGMUON
                                     </td>
                                     <td>
-                                        <p>Hình ảnh:</p>
                                         <img width="150" src="@Url.Content("~/assest/imgs/Product/"+item.SACH.HINHANH)" />
                                     </td>
                                     <td>
@@ -69,7 +63,6 @@
                                         @item.SACH.SOLUONGTON
                                     </td>
                                 </tr>
-                                stt++;
                             }
 
                         </tbody>

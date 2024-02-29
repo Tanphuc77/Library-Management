@@ -21,6 +21,9 @@
                         Ngày trả
                     </th>
                     <th>
+                        Ngày trả thực tế
+                    </th>
+                    <th>
                         Tình trạng mượn
                     </th>
                     <th>
@@ -47,6 +50,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.HANTRA)
                         </td>
+                        <td>@item.NGAYTRATHUCTE</td>
                         <td>
                             @if (@item.TRANGTHAIMUON == false)
                             {
@@ -74,7 +78,7 @@
                             @Html.DisplayFor(modelItem => item.THUTHU.TENTHUTHU)
                         </td>
                         <td>
-                            @Html.ActionLink("Chi tiết mượn trả", "EditBook", new { id = item.MAMUON }, new { @class = "edit-button" })
+                            @Html.ActionLink("Chi tiết mượn trả", "ChiTiet", new { id = item.MAMUON }, new { @class = "edit-button" })
                         </td>
                     </tr>
                     stt++;

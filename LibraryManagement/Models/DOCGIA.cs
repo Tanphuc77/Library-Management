@@ -17,11 +17,12 @@ namespace LibraryManagement.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DOCGIA()
         {
-            this.MUONTRAs = new HashSet<MUONTRA>();
             this.VIPHAMs = new HashSet<VIPHAM>();
+            this.MUONTRAs = new HashSet<MUONTRA>();
         }
     
-        public int MADOCGIA { get; set; }
+        public int ID { get; set; }
+        public string MASINHVIEN { get; set; }
         public string HOTEN { get; set; }
         public string GIOITINH { get; set; }
         public string LOP { get; set; }
@@ -32,8 +33,8 @@ namespace LibraryManagement.Models
         public string PASSWORD { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MUONTRA> MUONTRAs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VIPHAM> VIPHAMs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MUONTRA> MUONTRAs { get; set; }
     }
 }

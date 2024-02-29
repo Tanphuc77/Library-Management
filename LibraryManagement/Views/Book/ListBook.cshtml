@@ -23,6 +23,7 @@
             <table class="table table-bordered" width="100%" cellspacing="0">
                 <thead>
                     <tr>
+                        <th>STT</th>
                         <th>
                             Tên sách
                         </th>
@@ -41,10 +42,12 @@
                         <th>Chức năng</th>
                     </tr>
                 </thead>
+                @{ int stt = 1;}
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td style="text-align:center">@stt</td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.TENSACH)
                             </td>
@@ -69,6 +72,7 @@
                                 </div>
                             </td>
                         </tr>
+                        stt++;
                     }
                 </tbody>
             </table>

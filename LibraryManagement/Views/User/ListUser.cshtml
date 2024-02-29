@@ -15,6 +15,9 @@
                 <thead>
                     <tr>
                         <th>
+                            @Html.DisplayNameFor(model => model.MASINHVIEN)
+                        </th>
+                        <th>
                             @Html.DisplayNameFor(model => model.HOTEN)
                         </th>
                         <th>
@@ -42,6 +45,9 @@
                 {
                     <tr>
                         <td>
+                            @Html.DisplayFor(modelItem => item.MASINHVIEN)
+                        </td>
+                        <td>
                             @Html.DisplayFor(modelItem => item.HOTEN)
                         </td>
                         <td>
@@ -61,12 +67,13 @@
                         </td>
                         <td>
                             @if (@item.TINHTRANG == true)
-                            { <span style="color:green">Đang sử dụng</span>}
-                            else {<span style="color:red">Đã chặn</span>}
+                            {<span style="color:green">Đang sử dụng</span>}
+                            else
+                            {<span style="color:red">Đã chặn</span>}
                         </td>
                         <td>
-                            @Html.ActionLink("Chỉnh sửa", "EditUser", new { id = item.MADOCGIA }, new { @class = "edit-button" }) |
-                            @Html.ActionLink("Xóa", "RemoveUser", new { id = item.MADOCGIA }, new { @class = "delete-button", onclick = "return LibrarianDelete();" })
+                            @Html.ActionLink("Chỉnh sửa", "EditUser", new { id = item.ID }, new { @class = "edit-button" }) |
+                            @Html.ActionLink("Xóa", "RemoveUser", new { id = item.ID }, new { @class = "delete-button", onclick = "return LibrarianDelete();" })
                         </td>
                     </tr>
                 }

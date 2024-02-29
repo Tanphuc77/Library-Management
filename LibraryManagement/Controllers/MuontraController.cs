@@ -62,13 +62,72 @@ namespace LibraryManagement.Controllers
         }
         public ActionResult DaDuyetSach()
         {
-            var Acceptance = db.MUONTRAs.Where(m => m.TRANGTHAIMUON == true).OrderByDescending(m => m.NGAYMUON).ToList();
+            var Acceptance = db.MUONTRAs.Where(m => m.TRANGTHAIMUON == true && m.TRANGTHAITRA == false).OrderByDescending(m => m.NGAYMUON).ToList();
             return View(Acceptance);
         }
-        public ActionResult DaMuonSach()
+        [HttpGet]
+        public ActionResult DuyetTraSach(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            MUONTRA muonTra = db.MUONTRAs.SingleOrDefault(m => m.MAMUON == id);
+            if (muonTra == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Hiển thị chi tiết phiếu lên view
+            var listChiTietMuonSach = db.CHITIETMUONTRAs.Where(m => m.MAMUON == id);
+            ViewBag.ChiTietMuonSach = listChiTietMuonSach;
+
+            return View(muonTra);
+        }
+        [HttpPost]
+        public ActionResult DuyetTraSach(MUONTRA model)
+        {
+            // Truy vấn dữ liệu đơn hàng đó
+            MUONTRA updatePhieuMuon = db.MUONTRAs.SingleOrDefault(m => m.MAMUON == model.MAMUON);
+            updatePhieuMuon.NGAYTRATHUCTE = model.NGAYTRATHUCTE;
+            updatePhieuMuon.TRANGTHAITRA = model.TRANGTHAITRA;
+
+            var listChiTietMuonSach = db.CHITIETMUONTRAs.Where(m => m.MAMUON == model.MAMUON);
+            ViewBag.ChiTietMuonSach = listChiTietMuonSach;
+            foreach (var item in listChiTietMuonSach)
+            {
+                var book = db.SACHes.SingleOrDefault(s => s.MASACH == item.MASACH);
+                if (book != null)
+                {
+                    // Trừ số lượng tồn của sách đi số lượng mượn
+                    book.SOLUONGTON += item.SOLUONGMUON;
+                }
+            }
+            db.SaveChanges();
+            return RedirectToAction("ChuaDuyetSach");
+        }
+        public ActionResult DaTraSach()
         {
             var Acceptance = db.MUONTRAs.Where(m => m.TRANGTHAITRA == true).OrderByDescending(m => m.NGAYMUON).ToList();
             return View(Acceptance);
+        }
+        public ActionResult ChiTiet(int ? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            MUONTRA muonTra = db.MUONTRAs.SingleOrDefault(m => m.MAMUON == id);
+            if (muonTra == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Hiển thị chi tiết phiếu lên view
+            var listChiTietMuonSach = db.CHITIETMUONTRAs.Where(m => m.MAMUON == id);
+            ViewBag.ChiTietMuonSach = listChiTietMuonSach;
+
+            return View(muonTra);
         }
     }
 }

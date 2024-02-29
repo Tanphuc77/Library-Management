@@ -9,13 +9,13 @@
     <Property Name="MASACH" Type="int" />
     <Property Name="TENSACH" Type="nvarchar" MaxLength="500" />
     <Property Name="SOLUONGMUON" Type="int" />
-    <Property Name="GHICHU" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="DOCGIA">
     <Key>
-      <PropertyRef Name="MADOCGIA" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="MADOCGIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MASINHVIEN" Type="nvarchar" MaxLength="50" />
     <Property Name="HOTEN" Type="nvarchar" MaxLength="50" />
     <Property Name="GIOITINH" Type="nvarchar" MaxLength="10" />
     <Property Name="LOP" Type="nvarchar" MaxLength="10" />
@@ -36,6 +36,7 @@
     <Property Name="TRANGTHAIMUON" Type="bit" />
     <Property Name="TRANGTHAITRA" Type="bit" />
     <Property Name="DAXOA" Type="bit" />
+    <Property Name="GHICHU" Type="nvarchar(max)" />
     <Property Name="MADOCGIA" Type="int" />
     <Property Name="MATHUTHU" Type="int" />
   </EntityType>
@@ -155,7 +156,7 @@
     <End Role="MUONTRA" Type="Self.MUONTRA" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="DOCGIA">
-        <PropertyRef Name="MADOCGIA" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="MUONTRA">
         <PropertyRef Name="MADOCGIA" />
@@ -227,7 +228,7 @@
     <End Role="VIPHAM" Type="Self.VIPHAM" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="DOCGIA">
-        <PropertyRef Name="MADOCGIA" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="VIPHAM">
         <PropertyRef Name="MADOCGIA" />

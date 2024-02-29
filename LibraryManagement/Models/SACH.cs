@@ -17,8 +17,8 @@ namespace LibraryManagement.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SACH()
         {
-            this.CHITIETMUONTRAs = new HashSet<CHITIETMUONTRA>();
             this.PHIEUNHAPs = new HashSet<PHIEUNHAP>();
+            this.CHITIETMUONTRAs = new HashSet<CHITIETMUONTRA>();
         }
     
         public int MASACH { get; set; }
@@ -35,10 +35,10 @@ namespace LibraryManagement.Models
         public Nullable<int> MATHELOAI { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETMUONTRA> CHITIETMUONTRAs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUNHAP> PHIEUNHAPs { get; set; }
         public virtual NHAXUATBAN NHAXUATBAN { get; set; }
         public virtual THELOAI THELOAI { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIETMUONTRA> CHITIETMUONTRAs { get; set; }
     }
 }

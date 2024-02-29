@@ -11,7 +11,11 @@ namespace LibraryManagement.Models
     {
         internal sealed class DOCGIAMetadata 
         {
-            public int MADOCGIA { get; set; }
+            public int ID { get; set; }
+
+            [Display(Name = "Mã đọc giả")]
+            [Required(ErrorMessage = "{0} không được để trống")]
+            public string MASINHVIEN { get; set; }
             [Display(Name = "Tên đọc giả")]
             [Required(ErrorMessage = "{0} không được để trống")]
             public string HOTEN { get; set; }

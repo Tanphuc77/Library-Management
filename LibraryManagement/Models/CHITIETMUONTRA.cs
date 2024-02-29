@@ -19,7 +19,6 @@ namespace LibraryManagement.Models
         public Nullable<int> MASACH { get; set; }
         public string TENSACH { get; set; }
         public Nullable<int> SOLUONGMUON { get; set; }
-        public string GHICHU { get; set; }
     
         public virtual MUONTRA MUONTRA { get; set; }
         public virtual SACH SACH { get; set; }

@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Statistical";
+    Layout = "~/Views/Layout/Admin.cshtml";
+}
+@Html.Partial("~/Views/Menu/MenuPartial.cshtml")
+<div class="main">
+    @Html.Partial("~/Views/Search/Topbar.cshtml")
+    <div class="cartbox">
+
+        <div class="cart">
+            <div>
+                <div class="numbers">@ViewBag.ThongKeSachMuonChuaduyet</div>
+                <div class="cartname">Sách chưa duyệt</div>
+            </div>
+            <div class="iconbx">
+                <ion-icon name="cloud-download-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="cart">
+            <div>
+                <div class="numbers">@ViewBag.ThongKeSachMuonDaduyet</div>
+                <div class="cartname">Sách đã duyệt</div>
+            </div>
+            <div class="iconbx">
+                <ion-icon name="cloud-done-outline"></ion-icon>
+            </div>
+        </div>
+
+        <div class="cart">
+            <div>
+                <div class="numbers">@ViewBag.ThongKeSachTra</div>
+                <div class="cartname">Sách đã trả</div>
+            </div>
+            <div class="iconbx">
+                <ion-icon name="cloud-upload-outline"></ion-icon>
+            </div>
+        </div>
+
+        <div class="cart">
+            <div>
+                <div class="numbers">@ViewBag.ThongKeDocGia</div>
+                <div class="cartname">Đọc giả</div>
+            </div>
+            <div class="iconbx">
+                <ion-icon name="people-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+</div>

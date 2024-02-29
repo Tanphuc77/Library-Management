@@ -27,6 +27,7 @@ namespace LibraryManagement.Models
         public Nullable<bool> TRANGTHAIMUON { get; set; }
         public Nullable<bool> TRANGTHAITRA { get; set; }
         public Nullable<bool> DAXOA { get; set; }
+        public string GHICHU { get; set; }
         public Nullable<int> MADOCGIA { get; set; }
         public Nullable<int> MATHUTHU { get; set; }
     

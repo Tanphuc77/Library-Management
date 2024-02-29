@@ -40,7 +40,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@stt</td>
+                        <td style="text-align:center">@stt</td>
                         <td>
                             @Html.DisplayFor(modelItem => item.NGAYMUON)
                         </td>
@@ -74,7 +74,7 @@
                             @Html.DisplayFor(modelItem => item.THUTHU.TENTHUTHU)
                         </td>
                         <td>
-                            @Html.ActionLink("Trả sách", "EditBook", new { id = item.MAMUON }, new { @class = "edit-button" })
+                            @Html.ActionLink("Trả sách", "DuyetTraSach", new { id = item.MAMUON }, new { @class = "edit-button" })
                         </td>
                     </tr>
                     stt++;

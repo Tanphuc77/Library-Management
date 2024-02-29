@@ -146,6 +146,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\BookpublisherController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\StatisticalController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -420,7 +421,10 @@
     <Content Include="Views\Muontra\ChuaDuyetSach.cshtml" />
     <Content Include="Views\Muontra\DaDuyetSach.cshtml" />
     <Content Include="Views\Muontra\DuyetPhieuMuon.cshtml" />
-    <Content Include="Views\Muontra\DaMuonSach.cshtml" />
+    <Content Include="Views\Muontra\DaTraSach.cshtml" />
+    <Content Include="Views\Muontra\DuyetTraSach.cshtml" />
+    <Content Include="Views\Muontra\ChiTiet.cshtml" />
+    <Content Include="Views\Statistical\Statistical.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

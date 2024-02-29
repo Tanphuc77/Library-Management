@@ -36,7 +36,7 @@
             </li>
 
             <li class="@Html.Raw(ViewBag.active == 2.5 ? "active":"")">
-                <a href="@Url.Action("DaMuonSach","Muontra")">
+                <a href="@Url.Action("DaTraSach","Muontra")">
                     <span class="icon">
                         <ion-icon name="cloud-upload-outline"></ion-icon>
                     </span>
@@ -52,8 +52,8 @@
                     <Span class="title">Thủ thư</Span>
                 </a>
             </li>
-            <li>
-                <a href="">
+            <li class="@Html.Raw(ViewBag.active == 3 ? "active":"")">
+                <a href="@Url.Action("Statistical","Statistical")">
                     <span class="icon">
                         <ion-icon name="bar-chart-outline"></ion-icon>
                     </span>
@@ -93,6 +93,31 @@
                     <Span class="title">Đăng xuất</Span>
                 </a>
             </li>
+            <li>
+                <a href="@Url.Action("Logout","Login")">
+                    <span class="icon">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </span>
+                    <Span class="title">Đăng xuất</Span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Logout","Login")">
+                    <span class="icon">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </span>
+                    <Span class="title">Đăng xuất</Span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Logout","Login")">
+                    <span class="icon">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </span>
+                    <Span class="title">Đăng xuất</Span>
+                </a>
+            </li>
+
         </ul>
     </div>
 </div>

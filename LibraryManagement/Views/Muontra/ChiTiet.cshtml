@@ -1,0 +1,79 @@
+﻿@using LibraryManagement.Models
+@model MUONTRA
+
+@{
+    ViewBag.Title = "DuyetPhieuMuon";
+    Layout = "~/Views/Layout/Admin.cshtml";
+    ViewBag.active = 2.5;
+}
+@{ IEnumerable<LibraryManagement.Models.CHITIETMUONTRA> chiTietMuonTra = (IEnumerable<LibraryManagement.Models.CHITIETMUONTRA>)ViewBag.ChiTietMuonSach;}
+@Html.Partial("~/Views/Menu/MenuPartial.cshtml")
+<div class="main">
+    @Html.Partial("~/Views/Search/Topbar.cshtml")
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MAMUON)
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="min-width:150px">
+                                Mã đọc giả:
+                                @Model.DOCGIA.MASINHVIEN
+                            </td>
+                            <td style="min-width:180px">
+                                Tên đọc giả: @Model.DOCGIA.HOTEN
+                            </td>
+                            <td style="min-width:100px">
+                                Ngày mượn sách:
+                                @Model.NGAYMUON
+                            </td>
+                            <td>
+                                Ngày trả sách:
+                                @Model.HANTRA
+                            </td>
+                            <td style="min-width:170px">
+                                Trả sách:
+                                @if(Model.TRANGTHAITRA== true) { <span style="color:green">Đã trả</span>}
+                                else {<p>Chưa trả sách</p> }
+                            </td>
+                            <td>
+                                Ngày trả thực tế:
+                                @Model.NGAYTRATHUCTE
+                            </td>
+                        </tr>
+                        @foreach (var item in chiTietMuonTra)
+                        {
+                            <tr>
+                                <td>
+                                    Tên sách:
+                                    @item.TENSACH
+                                </td>
+                                <td>
+                                    Số lượng mượn:
+                                    @item.SOLUONGMUON
+                                </td>
+                                <td style="display:flex;justify-content:center;align-items:center;">
+                                    <img width="100" src="@Url.Content("~/assest/imgs/Product/"+item.SACH.HINHANH)" />
+                                </td>
+                                <td>Thể loại: @item.SACH.THELOAI.TENTHELOAI</td>
+                                <td>Nhà xuất bản: @item.SACH.NHAXUATBAN.TENNHAXUATBAN</td>
+                                <td>
+                                    Tác giả:
+                                    @item.SACH.TACGIA
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
+

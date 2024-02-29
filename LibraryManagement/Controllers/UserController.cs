@@ -22,7 +22,7 @@ namespace LibraryManagement.Controllers
             {
                 Response.StatusCode = 404;
             }
-            DOCGIA User = db.DOCGIAs.SingleOrDefault(m => m.MADOCGIA == id);
+            DOCGIA User = db.DOCGIAs.SingleOrDefault(m => m.ID == id);
             if (User == null)
             {
                 return HttpNotFound();
@@ -34,9 +34,10 @@ namespace LibraryManagement.Controllers
         {
             if (ModelState.IsValid)
             {
-                DOCGIA User = db.DOCGIAs.SingleOrDefault(m => m.MADOCGIA == model.MADOCGIA);
+                DOCGIA User = db.DOCGIAs.SingleOrDefault(m => m.ID == model.ID);
                 if (User.PASSWORD == model.PASSWORD)
                 {
+                    User.MASINHVIEN = model.MASINHVIEN;
                     User.HOTEN = model.HOTEN;
                     User.GIOITINH = model.GIOITINH;
                     User.LOP = model.LOP;
@@ -53,6 +54,7 @@ namespace LibraryManagement.Controllers
                     string salt = BCrypt.Net.BCrypt.GenerateSalt();
                     string hashedPassword = BCrypt.Net.BCrypt.HashPassword(model.PASSWORD, salt);
                     model.PASSWORD = hashedPassword;
+                    User.MASINHVIEN = model.MASINHVIEN;
                     User.HOTEN = model.HOTEN;
                     User.GIOITINH = model.GIOITINH;
                     User.LOP = model.LOP;
@@ -79,7 +81,7 @@ namespace LibraryManagement.Controllers
                     Response.StatusCode = 404;
                     return null;
                 }
-                DOCGIA User = db.DOCGIAs.SingleOrDefault(m => m.MADOCGIA == id);
+                DOCGIA User = db.DOCGIAs.SingleOrDefault(m => m.ID == id);
                 if (User == null)
                 {
                     return HttpNotFound();
