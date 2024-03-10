@@ -27,6 +27,7 @@ namespace LibraryManagement.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.MALOP = new SelectList(db.LOPs.OrderBy(m => m.TENLOP), "MALOP", "TENLOP", User.MALOP);
             return View(User);
         }
         [HttpPost]
@@ -40,7 +41,7 @@ namespace LibraryManagement.Controllers
                     User.MASINHVIEN = model.MASINHVIEN;
                     User.HOTEN = model.HOTEN;
                     User.GIOITINH = model.GIOITINH;
-                    User.LOP = model.LOP;
+                    User.MALOP = model.MALOP;
                     User.DIENTHOAI = model.DIENTHOAI;
                     User.EMAIL = model.EMAIL;
                     User.TINHTRANG = model.TINHTRANG;
@@ -57,7 +58,7 @@ namespace LibraryManagement.Controllers
                     User.MASINHVIEN = model.MASINHVIEN;
                     User.HOTEN = model.HOTEN;
                     User.GIOITINH = model.GIOITINH;
-                    User.LOP = model.LOP;
+                    User.MALOP = model.MALOP;
                     User.DIENTHOAI = model.DIENTHOAI;
                     User.EMAIL = model.EMAIL;
                     User.TINHTRANG = model.TINHTRANG;

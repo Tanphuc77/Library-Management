@@ -15,7 +15,7 @@ namespace LibraryManagement.Models
     public partial class VIPHAM
     {
         public int MAVIPHAM { get; set; }
-        public Nullable<int> MADOCGIA { get; set; }
+        public Nullable<int> ID { get; set; }
         public string LYDOVP { get; set; }
         public string HINHTHUCXULY { get; set; }
     

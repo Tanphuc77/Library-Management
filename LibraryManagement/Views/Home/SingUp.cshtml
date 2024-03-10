@@ -1,0 +1,110 @@
+﻿@using CaptchaMvc.HtmlHelpers
+@using CaptchaMvc;
+@using LibraryManagement.Models
+@model DOCGIA
+@{
+    ViewBag.Title = "SingUp";
+    Layout = "~/Views/Layout/User.cshtml";
+}
+<header class="header-2 bg-white">
+    @Html.Partial("~/Views/Layout/Header-top.cshtml")
+    @Html.Partial("~/Views/Layout/Header-middle.cshtml")
+    @Html.Partial("~/Views/Layout/Menu.cshtml")
+</header>
+<div class="page-section pt-60 pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="offset-lg-2 col-lg-8 col-md-12 col-12">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <div class="login-form">
+                        <h4 class="login-title">Đăng ký</h4>
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb-20">
+                                @Html.LabelFor(model => model.MASINHVIEN)
+                                @Html.TextBox("MASINHVIEN", null, new { placeholder = "Mã sinh viên" })
+                                @Html.ValidationMessageFor(model => model.MASINHVIEN, null, new { @class = "text-danger validation" })
+                            </div>
+                            <div class="col-md-6 col-12 mb-20">
+                                @Html.LabelFor(model => model.HOTEN)
+                                @Html.TextBox("HOTEN", null, new { placeholder = "Họ và tên" })
+                                @Html.ValidationMessageFor(model => model.HOTEN, null, new { @class = "text-danger validation" })
+                            </div>
+                            <div class="col-md-6 mb-20">
+                                @Html.LabelFor(model => model.GIOITINH)
+                                @Html.DropDownList("GIOITINH", new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "Nam", Value = "Nam" },
+                                    new SelectListItem { Text = "Nữ", Value = "Nữ" }
+                                }, "Chọn giới tính", new { @class = "custom-dropdown" })
+                                @Html.ValidationMessageFor(model => model.GIOITINH, null, new { @class = "text-danger validation" })
+                            </div>
+                            <div class="col-md-6 mb-20">
+                                @Html.LabelFor(model => model.DIENTHOAI)
+                                @Html.TextBox("DIENTHOAI", null, new { placeholder = "Số điện thoại" })
+                                @Html.ValidationMessageFor(model => model.DIENTHOAI, null, new { @class = "text-danger validation" })
+                            </div>
+                            <div class="col-md-6 col-12 mb-20">
+                                @Html.LabelFor(model => model.EMAIL)
+                                @Html.TextBox("EMAIL", null, new { placeholder = "Email" })
+                                @Html.ValidationMessageFor(model => model.EMAIL, null, new { @class = "text-danger validation" })
+                            </div>
+                            <div class="col-md-6 col-12 mb-20">
+                                <label>Tên lớp</label>
+                                @Html.DropDownList("MALOP", null, new { @class = "custom-dropdown" })
+                                @Html.ValidationMessageFor(model => model.MALOP, null, new { @class = "text-danger validation" })
+                            </div>
+                            <div class="col-md-6 col-12 mb-20">
+                                @Html.LabelFor(model => model.USERNAME)
+                                @Html.TextBox("USERNAME", null, new { placeholder = "Tài khoản" })
+                                @Html.ValidationMessageFor(model => model.USERNAME, null, new { @class = "text-danger validation" })
+                                <p style="margin:-13px 0 0 0;color: red;font-size:14px">@ViewBag.TrungLap</p>
+                            </div>
+                            <div class="col-md-6 col-12 mb-20">
+                                @Html.LabelFor(model => model.PASSWORD)
+                                @Html.Password("PASSWORD", null, new { placeholder = "Mật khẩu" })
+                                @Html.ValidationMessageFor(model => model.PASSWORD, null, new { @class = "text-danger validation" })
+                            </div>
+                            <div class="col-md-6 col-12 mb-20">
+                                <label>Confirm Password</label>
+                                @Html.Password("ConfirmPassword", null, new { placeholder = "Confirm Password" })
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "text-danger validation" })
+                                <p style="margin:-13px 0 0 0;color: red">@ViewBag.NoMatch</p>
+                            </div>
+                            <div class="col-md-12 mb-20">
+                                @Html.Captcha(5)
+                                <p style="margin:-13px 0 0 0;color: red; font-size:13px">@ViewBag.Captcha </p>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="register-button mt-0">Đăng ký</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .validation {
+        font-size: 13px;
+    }
+    .custom-dropdown {
+        width: 100%;
+        background-color: transparent;
+        border: 1px solid #999999;
+        border-radius: 0;
+        line-height: 23px;
+        padding: 10px 20px;
+        font-size: 14px;
+        color: #7a7a7a;
+        margin-bottom: 15px;
+    }
+    .login-form a{
+        display:none;
+        color:red;
+    }
+</style>
+@Html.Partial("~/Views/Layout/Footer.cshtml")

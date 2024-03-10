@@ -52,14 +52,18 @@ body {
     border-left: 10px solid var(--blue);
     transition: 0.5s;
     overflow: hidden;
+    overflow: auto;
 }
-
+    .navigation::-webkit-scrollbar{
+        display:none;
+    }
     .navigation li.active a {
         color: var(--black);
     }
 
     .navigation.active {
         width: 80px;
+        
     }
 
     .navigation ul {

@@ -1,0 +1,81 @@
+﻿@using LibraryManagement.Models
+@model DOCGIA
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Layout/User.cshtml";
+}
+<header class="header-2 bg-white">
+    @Html.Partial("~/Views/Layout/Header-top.cshtml")
+    @Html.Partial("~/Views/Layout/Header-middle.cshtml")
+    @Html.Partial("~/Views/Layout/Menu.cshtml")
+</header>
+<div class="page-section pt-60 pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6 col-md-12 col-12">
+                <div class="login-form">
+                    <h4 class="login-title">Đăng nhập</h4>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="row">
+                            <div class="col-md-12 col-12 mb-20">
+                                @Html.LabelFor(model => model.USERNAME)
+                                <input type="text" name="Username" placeholder="Tài khoản">
+                                @Html.ValidationMessageFor(model => model.USERNAME, null, new { @class = "text-danger validation" })
+                            </div>
+                            <div class="col-12 mb-20">
+                                @Html.LabelFor(model => model.PASSWORD)
+                                <input type="password" name="Password" placeholder="Mật khẩu">
+                                @Html.ValidationMessageFor(model => model.PASSWORD, null, new { @class = "text-danger validation" })
+                            </div>
+
+                            <div class="col-md-12">
+                                <button type="submit" class="register-button mt-0">Login</button>
+                            </div>
+
+                            <div class="mt-20 mb-20 text-center ">
+                                <span style="white-space: nowrap; font-size: 14px; align-items: center; display: flex; justify-content: center;">
+                                    Bạn chưa có tài khoản?
+                                    <a href="#" style="margin:0 5px;color:red">
+                                        Đăng ký
+                                    </a>
+                                </span>
+                            </div>
+                            @if (TempData["Notification"] != null)
+                            {
+                                <script>
+                             alert("@Html.Raw(TempData["Notification"])");
+                                </script>
+                            }
+                            @if (TempData["Blockaccess"] != null)
+                            {
+                                <script>
+                             alert("@Html.Raw(TempData["Blockaccess"])");
+                                </script>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/Layout/Footer.cshtml")
+<style>
+    .register-button {
+        width: 100%;
+        height: 100%;
+        padding: 7px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #363f4d;
+        transition: background-color 0.3s ease;
+    }
+
+        .register-button:hover {
+            background-color: #e23e57;
+        }
+</style>

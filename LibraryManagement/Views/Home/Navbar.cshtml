@@ -1,0 +1,31 @@
+﻿@using LibraryManagement.Models
+@model IEnumerable<NHAXUATBAN>
+<div class="category-menu">
+    <div class="category-heading">
+        <h2 class="categories-toggle"><span>Nhà xuất bản</span></h2>
+    </div>
+    <div id="cate-toggle" class="category-menu-list">
+        <ul>
+            @{
+                int countFirstTen = 0;
+            }
+            @foreach (var item in Model)
+            {
+                if (countFirstTen < 10)
+                {
+                    <li><a href="#"><span><img src="~/assest/User/images/category-thumb/6.png" alt=""></span>@item.TENNHAXUATBAN</a></li>
+                }
+                else
+                {
+                    <li class="rx-child"><a href="#"><span><img src="~/assest/User/images/category-thumb/11.png" alt=""></span>@item.TENNHAXUATBAN</a></li>
+                }
+
+                countFirstTen++;
+            }
+            <li class="rx-parent">
+                <a class="rx-default">Tất cả</a>
+                <a class="rx-show">Thu nhỏ</a>
+            </li>
+        </ul>
+    </div>
+</div>

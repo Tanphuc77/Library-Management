@@ -18,12 +18,19 @@
     <Property Name="MASINHVIEN" Type="nvarchar" MaxLength="50" />
     <Property Name="HOTEN" Type="nvarchar" MaxLength="50" />
     <Property Name="GIOITINH" Type="nvarchar" MaxLength="10" />
-    <Property Name="LOP" Type="nvarchar" MaxLength="10" />
     <Property Name="EMAIL" Type="varchar" MaxLength="50" />
     <Property Name="DIENTHOAI" Type="varchar" MaxLength="10" />
     <Property Name="TINHTRANG" Type="bit" />
+    <Property Name="MALOP" Type="int" />
     <Property Name="USERNAME" Type="varchar" MaxLength="100" />
     <Property Name="PASSWORD" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LOP">
+    <Key>
+      <PropertyRef Name="MALOP" />
+    </Key>
+    <Property Name="MALOP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENLOP" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="MUONTRA">
     <Key>
@@ -123,7 +130,7 @@
       <PropertyRef Name="MAVIPHAM" />
     </Key>
     <Property Name="MAVIPHAM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MADOCGIA" Type="int" />
+    <Property Name="ID" Type="int" />
     <Property Name="LYDOVP" Type="nvarchar" MaxLength="500" />
     <Property Name="HINHTHUCXULY" Type="nvarchar" MaxLength="500" />
   </EntityType>
@@ -148,6 +155,18 @@
       </Principal>
       <Dependent Role="CHITIETMUONTRA">
         <PropertyRef Name="MASACH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOCGIA_LOP">
+    <End Role="LOP" Type="Self.LOP" Multiplicity="0..1" />
+    <End Role="DOCGIA" Type="Self.DOCGIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOP">
+        <PropertyRef Name="MALOP" />
+      </Principal>
+      <Dependent Role="DOCGIA">
+        <PropertyRef Name="MALOP" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -231,13 +250,14 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="VIPHAM">
-        <PropertyRef Name="MADOCGIA" />
+        <PropertyRef Name="ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="QuanLyThuVienModelStoreContainer">
     <EntitySet Name="CHITIETMUONTRA" EntityType="Self.CHITIETMUONTRA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DOCGIA" EntityType="Self.DOCGIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOP" EntityType="Self.LOP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MUONTRA" EntityType="Self.MUONTRA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NHACUNGCAP" EntityType="Self.NHACUNGCAP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NHAXUATBAN" EntityType="Self.NHAXUATBAN" Schema="dbo" store:Type="Tables" />
@@ -254,6 +274,10 @@
     <AssociationSet Name="FK_CHITIETMUONTRA_SACH" Association="Self.FK_CHITIETMUONTRA_SACH">
       <End Role="SACH" EntitySet="SACH" />
       <End Role="CHITIETMUONTRA" EntitySet="CHITIETMUONTRA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOCGIA_LOP" Association="Self.FK_DOCGIA_LOP">
+      <End Role="LOP" EntitySet="LOP" />
+      <End Role="DOCGIA" EntitySet="DOCGIA" />
     </AssociationSet>
     <AssociationSet Name="FK_MUONTRA_DOCGIA" Association="Self.FK_MUONTRA_DOCGIA">
       <End Role="DOCGIA" EntitySet="DOCGIA" />

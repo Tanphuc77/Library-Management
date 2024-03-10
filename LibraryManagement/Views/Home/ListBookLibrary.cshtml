@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/User.cshtml";
+}
+<header class="header-2 bg-white">
+    @Html.Partial("~/Views/Layout/Header-top.cshtml")
+    @Html.Partial("~/Views/Layout/Header-middle.cshtml")
+    @Html.Action("Menu", "Home")
+</header>
+@Html.Partial("~/Views/Layout/Slide.cshtml")
+@Html.Partial("~/Views/Layout/Listnewbook.cshtml")
+@Html.Partial("~/Views/Layout/Listbook.cshtml")
+@Html.Partial("~/Views/Layout/Footer.cshtml")

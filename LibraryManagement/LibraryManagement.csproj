@@ -46,8 +46,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
-      <HintPath>..\packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
+    <Reference Include="CaptchaMvc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=fe46ad421dd3b0e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CaptchaMvc.Mvc5.1.5.0\lib\net45-full\CaptchaMvc.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -63,8 +66,21 @@
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -140,6 +156,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookcategoryController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MuontraController.cs" />
     <Compile Include="Controllers\LibrarianController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -155,6 +172,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DOCGIA.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOP.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Metadata\Book.cs" />
@@ -328,6 +348,207 @@
     <Content Include="assest\tinymce\js\tinymce\skins\ui\tinymce-5\skin.shadowdom.min.css" />
     <Content Include="assest\tinymce\js\tinymce\themes\silver\theme.min.js" />
     <Content Include="assest\tinymce\js\tinymce\tinymce.min.js" />
+    <Content Include="assest\User\css\bootstrap.min.css" />
+    <Content Include="assest\User\css\font-awesome.min.css" />
+    <Content Include="assest\User\css\helper.css" />
+    <Content Include="assest\User\css\ionicons.min.css" />
+    <Content Include="assest\User\css\owl.video.play.html" />
+    <Content Include="assest\User\css\plugins.css" />
+    <Content Include="assest\User\css\style.css" />
+    <Content Include="assest\User\fonts\fontawesome-webfont3e6e3e6e.svg" />
+    <Content Include="assest\User\fonts\ionicons28b5.svg" />
+    <Content Include="assest\User\fonts\lgd641d641.svg" />
+    <Content Include="assest\User\images\about-us\1.jpg" />
+    <Content Include="assest\User\images\about-us\team\1.jpg" />
+    <Content Include="assest\User\images\about-us\team\2.jpg" />
+    <Content Include="assest\User\images\about-us\team\3.jpg" />
+    <Content Include="assest\User\images\banner\1_1.jpg" />
+    <Content Include="assest\User\images\banner\1_10.jpg" />
+    <Content Include="assest\User\images\banner\1_11.jpg" />
+    <Content Include="assest\User\images\banner\1_2.jpg" />
+    <Content Include="assest\User\images\banner\1_3.jpg" />
+    <Content Include="assest\User\images\banner\1_4.jpg" />
+    <Content Include="assest\User\images\banner\1_5.jpg" />
+    <Content Include="assest\User\images\banner\1_6.jpg" />
+    <Content Include="assest\User\images\banner\1_7.jpg" />
+    <Content Include="assest\User\images\banner\1_8.jpg" />
+    <Content Include="assest\User\images\banner\1_9.jpg" />
+    <Content Include="assest\User\images\banner\2_1.jpg" />
+    <Content Include="assest\User\images\banner\2_11.jpg" />
+    <Content Include="assest\User\images\banner\2_2.jpg" />
+    <Content Include="assest\User\images\banner\2_3.jpg" />
+    <Content Include="assest\User\images\banner\2_4.jpg" />
+    <Content Include="assest\User\images\banner\2_5.jpg" />
+    <Content Include="assest\User\images\banner\2_6.jpg" />
+    <Content Include="assest\User\images\banner\2_7.jpg" />
+    <Content Include="assest\User\images\banner\2_8.jpg" />
+    <Content Include="assest\User\images\banner\2_9.jpg" />
+    <Content Include="assest\User\images\banner\3_1.jpg" />
+    <Content Include="assest\User\images\banner\3_2.jpg" />
+    <Content Include="assest\User\images\banner\3_3.jpg" />
+    <Content Include="assest\User\images\banner\3_4.jpg" />
+    <Content Include="assest\User\images\banner\3_5.jpg" />
+    <Content Include="assest\User\images\banner\3_6.jpg" />
+    <Content Include="assest\User\images\banner\3_7.jpg" />
+    <Content Include="assest\User\images\banner\3_8.jpg" />
+    <Content Include="assest\User\images\banner\4_1.jpg" />
+    <Content Include="assest\User\images\banner\4_2.jpg" />
+    <Content Include="assest\User\images\banner\4_3.jpg" />
+    <Content Include="assest\User\images\blog\large-size\1.jpg" />
+    <Content Include="assest\User\images\blog\large-size\2.jpg" />
+    <Content Include="assest\User\images\blog\large-size\3.jpg" />
+    <Content Include="assest\User\images\blog\medium-size\1.jpg" />
+    <Content Include="assest\User\images\blog\medium-size\2.jpg" />
+    <Content Include="assest\User\images\blog\medium-size\3.jpg" />
+    <Content Include="assest\User\images\blog\medium-size\4.jpg" />
+    <Content Include="assest\User\images\blog\medium-size\5.jpg" />
+    <Content Include="assest\User\images\blog\medium-size\6.jpg" />
+    <Content Include="assest\User\images\blog\small-size\1.jpg" />
+    <Content Include="assest\User\images\blog\small-size\2.jpg" />
+    <Content Include="assest\User\images\blog\small-size\3.jpg" />
+    <Content Include="assest\User\images\blog\small-size\admin.png" />
+    <Content Include="assest\User\images\blog\small-size\user.png" />
+    <Content Include="assest\User\images\branding\1.jpg" />
+    <Content Include="assest\User\images\branding\2.jpg" />
+    <Content Include="assest\User\images\branding\3.jpg" />
+    <Content Include="assest\User\images\branding\4.jpg" />
+    <Content Include="assest\User\images\branding\5.jpg" />
+    <Content Include="assest\User\images\branding\6.jpg" />
+    <Content Include="assest\User\images\category-thumb\1.png" />
+    <Content Include="assest\User\images\category-thumb\10.png" />
+    <Content Include="assest\User\images\category-thumb\11.png" />
+    <Content Include="assest\User\images\category-thumb\2.png" />
+    <Content Include="assest\User\images\category-thumb\3.png" />
+    <Content Include="assest\User\images\category-thumb\4.png" />
+    <Content Include="assest\User\images\category-thumb\5.png" />
+    <Content Include="assest\User\images\category-thumb\6.png" />
+    <Content Include="assest\User\images\category-thumb\7.png" />
+    <Content Include="assest\User\images\category-thumb\8.png" />
+    <Content Include="assest\User\images\category-thumb\9.png" />
+    <Content Include="assest\User\images\favicon.ico" />
+    <Content Include="assest\User\images\list-product\1.jpg" />
+    <Content Include="assest\User\images\list-product\2.jpg" />
+    <Content Include="assest\User\images\list-product\3.jpg" />
+    <Content Include="assest\User\images\list-product\4.jpg" />
+    <Content Include="assest\User\images\loading.gif" />
+    <Content Include="assest\User\images\menu\flag-icon\1.jpg" />
+    <Content Include="assest\User\images\menu\flag-icon\2.jpg" />
+    <Content Include="assest\User\images\menu\logo\1.png" />
+    <Content Include="assest\User\images\menu\logo\2.png" />
+    <Content Include="assest\User\images\menu\logo\3.png" />
+    <Content Include="assest\User\images\menu\logo\4.png" />
+    <Content Include="assest\User\images\minicart\1.jpg" />
+    <Content Include="assest\User\images\minicart\2.jpg" />
+    <Content Include="assest\User\images\minicart\3.jpg" />
+    <Content Include="assest\User\images\minicart\4.jpg" />
+    <Content Include="assest\User\images\minicart\5.jpg" />
+    <Content Include="assest\User\images\minicart\6.jpg" />
+    <Content Include="assest\User\images\payment\1.png" />
+    <Content Include="assest\User\images\product-details\large-size\1.jpg" />
+    <Content Include="assest\User\images\product-details\large-size\2.jpg" />
+    <Content Include="assest\User\images\product-details\large-size\3.jpg" />
+    <Content Include="assest\User\images\product-details\large-size\4.jpg" />
+    <Content Include="assest\User\images\product-details\manufacturer.jpg" />
+    <Content Include="assest\User\images\product-details\small-size\1.jpg" />
+    <Content Include="assest\User\images\product-details\small-size\2.jpg" />
+    <Content Include="assest\User\images\product-details\small-size\3.jpg" />
+    <Content Include="assest\User\images\product-details\small-size\4.jpg" />
+    <Content Include="assest\User\images\product-thumb\1.png" />
+    <Content Include="assest\User\images\product-thumb\2.png" />
+    <Content Include="assest\User\images\product-thumb\3.png" />
+    <Content Include="assest\User\images\product-thumb\4.png" />
+    <Content Include="assest\User\images\product-thumb\5.png" />
+    <Content Include="assest\User\images\product-thumb\6.png" />
+    <Content Include="assest\User\images\product\1.jpg" />
+    <Content Include="assest\User\images\product\10.jpg" />
+    <Content Include="assest\User\images\product\11.jpg" />
+    <Content Include="assest\User\images\product\12_1.jpg" />
+    <Content Include="assest\User\images\product\12_2.jpg" />
+    <Content Include="assest\User\images\product\13.jpg" />
+    <Content Include="assest\User\images\product\2-10_1.jpg" />
+    <Content Include="assest\User\images\product\2-10_2.jpg" />
+    <Content Include="assest\User\images\product\2-1_1.jpg" />
+    <Content Include="assest\User\images\product\2-2_1.jpg" />
+    <Content Include="assest\User\images\product\2-2_2.jpg" />
+    <Content Include="assest\User\images\product\2-3_1.jpg" />
+    <Content Include="assest\User\images\product\2-3_2.jpg" />
+    <Content Include="assest\User\images\product\2-4_1.jpg" />
+    <Content Include="assest\User\images\product\2-4_2.jpg" />
+    <Content Include="assest\User\images\product\2-5_1.jpg" />
+    <Content Include="assest\User\images\product\2-6_1.jpg" />
+    <Content Include="assest\User\images\product\2-6_2.jpg" />
+    <Content Include="assest\User\images\product\2-7_1.jpg" />
+    <Content Include="assest\User\images\product\2-7_2.jpg" />
+    <Content Include="assest\User\images\product\2-8_1.jpg" />
+    <Content Include="assest\User\images\product\2-8_2.jpg" />
+    <Content Include="assest\User\images\product\2-9_1.jpg" />
+    <Content Include="assest\User\images\product\2-9_2.jpg" />
+    <Content Include="assest\User\images\product\2_1.jpg" />
+    <Content Include="assest\User\images\product\2_2.jpg" />
+    <Content Include="assest\User\images\product\3-1_1.jpg" />
+    <Content Include="assest\User\images\product\3-1_2.jpg" />
+    <Content Include="assest\User\images\product\3-2_1.jpg" />
+    <Content Include="assest\User\images\product\3-2_2.jpg" />
+    <Content Include="assest\User\images\product\3-3_1.jpg" />
+    <Content Include="assest\User\images\product\3-3_2.jpg" />
+    <Content Include="assest\User\images\product\3-4_1.jpg" />
+    <Content Include="assest\User\images\product\3-4_2.jpg" />
+    <Content Include="assest\User\images\product\3-5_1.jpg" />
+    <Content Include="assest\User\images\product\3-5_2.jpg" />
+    <Content Include="assest\User\images\product\3-6.jpg" />
+    <Content Include="assest\User\images\product\3_1.jpg" />
+    <Content Include="assest\User\images\product\3_2.jpg" />
+    <Content Include="assest\User\images\product\4-1_1.jpg" />
+    <Content Include="assest\User\images\product\4-1_2.jpg" />
+    <Content Include="assest\User\images\product\4-1_3.jpg" />
+    <Content Include="assest\User\images\product\4-1_4.jpg" />
+    <Content Include="assest\User\images\product\4-1_5.jpg" />
+    <Content Include="assest\User\images\product\4-1_6.jpg" />
+    <Content Include="assest\User\images\product\4_1.jpg" />
+    <Content Include="assest\User\images\product\4_2.jpg" />
+    <Content Include="assest\User\images\product\5_1.jpg" />
+    <Content Include="assest\User\images\product\5_2.jpg" />
+    <Content Include="assest\User\images\product\6_1.jpg" />
+    <Content Include="assest\User\images\product\6_2.jpg" />
+    <Content Include="assest\User\images\product\7_1.jpg" />
+    <Content Include="assest\User\images\product\7_2.jpg" />
+    <Content Include="assest\User\images\product\8_1.jpg" />
+    <Content Include="assest\User\images\product\8_2.jpg" />
+    <Content Include="assest\User\images\product\9.jpg" />
+    <Content Include="assest\User\images\product\kinh-te-1.jpg" />
+    <Content Include="assest\User\images\product\kinh-te-2.jpg" />
+    <Content Include="assest\User\images\product\kinh-te-3.jpg" />
+    <Content Include="assest\User\images\product\kinh-te-4.jpg" />
+    <Content Include="assest\User\images\product\kinh-te-5.jpg" />
+    <Content Include="assest\User\images\product\Lap-top-1.jpg" />
+    <Content Include="assest\User\images\product\Lap-top-2.jpg" />
+    <Content Include="assest\User\images\product\Lap-top-3.jpg" />
+    <Content Include="assest\User\images\product\Lap-top-4.jpg" />
+    <Content Include="assest\User\images\product\Lap-top-5.jpg" />
+    <Content Include="assest\User\images\product\lap-trinh-1.jpg" />
+    <Content Include="assest\User\images\product\lap-trinh-2.jpg" />
+    <Content Include="assest\User\images\product\lap-trinh-3.jpg" />
+    <Content Include="assest\User\images\product\lap-trinh-4.jpg" />
+    <Content Include="assest\User\images\product\lap-trinh-5.jpg" />
+    <Content Include="assest\User\images\single-product\large-size\1.jpg" />
+    <Content Include="assest\User\images\single-product\large-size\2.jpg" />
+    <Content Include="assest\User\images\single-product\large-size\3.jpg" />
+    <Content Include="assest\User\images\single-product\large-size\4.jpg" />
+    <Content Include="assest\User\images\single-product\small-size\1.jpg" />
+    <Content Include="assest\User\images\single-product\small-size\2.jpg" />
+    <Content Include="assest\User\images\single-product\small-size\3.jpg" />
+    <Content Include="assest\User\images\single-product\small-size\4.jpg" />
+    <Content Include="assest\User\images\slider\2_1.jpg" />
+    <Content Include="assest\User\images\slider\2_2.jpg" />
+    <Content Include="assest\User\img\video-play.html" />
+    <Content Include="assest\User\img\vimeo-play.html" />
+    <Content Include="assest\User\img\youtube-play.html" />
+    <Content Include="assest\User\js\bootstrap.bundle.min.js" />
+    <Content Include="assest\User\js\main.js" />
+    <Content Include="assest\User\js\plugins.js" />
+    <Content Include="assest\User\js\vendor\jquery-3.6.0.min.js" />
+    <Content Include="assest\User\js\vendor\jquery-migrate-3.3.2.min.js" />
+    <Content Include="assest\User\js\vendor\modernizr-3.11.2.min.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -373,6 +594,18 @@
     </Content>
     <Content Include="assest\tinymce\CHANGELOG.md" />
     <Content Include="assest\tinymce\js\tinymce\langs\README.md" />
+    <Content Include="assest\User\fonts\fontawesome-webfont3e6e3e6e.eot" />
+    <Content Include="assest\User\fonts\fontawesome-webfont3e6e3e6e.ttf" />
+    <Content Include="assest\User\fonts\fontawesome-webfont3e6e3e6e.woff" />
+    <Content Include="assest\User\fonts\fontawesome-webfont3e6e3e6e.woff2" />
+    <Content Include="assest\User\fonts\fontawesome-webfontd41dd41d.eot" />
+    <Content Include="assest\User\fonts\ionicons28b5.eot" />
+    <Content Include="assest\User\fonts\ionicons28b5.ttf" />
+    <Content Include="assest\User\fonts\ionicons28b5.woff" />
+    <Content Include="assest\User\fonts\lgd41dd41d.eot" />
+    <Content Include="assest\User\fonts\lgd641d641.eot" />
+    <Content Include="assest\User\fonts\lgd641d641.ttf" />
+    <Content Include="assest\User\fonts\lgd641d641.woff" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -425,6 +658,18 @@
     <Content Include="Views\Muontra\DuyetTraSach.cshtml" />
     <Content Include="Views\Muontra\ChiTiet.cshtml" />
     <Content Include="Views\Statistical\Statistical.cshtml" />
+    <Content Include="Views\Layout\User.cshtml" />
+    <Content Include="Views\Home\ListBookLibrary.cshtml" />
+    <Content Include="Views\Layout\Header-top.cshtml" />
+    <Content Include="Views\Layout\Header-middle.cshtml" />
+    <Content Include="Views\Layout\Footer.cshtml" />
+    <Content Include="Views\Layout\Slide.cshtml" />
+    <Content Include="Views\Layout\Listbook.cshtml" />
+    <Content Include="Views\Layout\Listnewbook.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\SingUp.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
+    <Content Include="Views\Home\Navbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

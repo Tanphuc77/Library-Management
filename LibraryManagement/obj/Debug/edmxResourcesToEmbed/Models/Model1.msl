@@ -52,16 +52,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="VIPHAMs">
-      <EntityTypeMapping TypeName="QuanLyThuVienModel.VIPHAM">
-        <MappingFragment StoreEntitySet="VIPHAM">
-          <ScalarProperty Name="MAVIPHAM" ColumnName="MAVIPHAM" />
-          <ScalarProperty Name="MADOCGIA" ColumnName="MADOCGIA" />
-          <ScalarProperty Name="LYDOVP" ColumnName="LYDOVP" />
-          <ScalarProperty Name="HINHTHUCXULY" ColumnName="HINHTHUCXULY" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="NHAXUATBANs">
       <EntityTypeMapping TypeName="QuanLyThuVienModel.NHAXUATBAN">
         <MappingFragment StoreEntitySet="NHAXUATBAN">
@@ -96,22 +86,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DOCGIAs">
-      <EntityTypeMapping TypeName="QuanLyThuVienModel.DOCGIA">
-        <MappingFragment StoreEntitySet="DOCGIA">
-          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
-          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
-          <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
-          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
-          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-          <ScalarProperty Name="LOP" ColumnName="LOP" />
-          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
-          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
-          <ScalarProperty Name="MASINHVIEN" ColumnName="MASINHVIEN" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CHITIETMUONTRAs">
       <EntityTypeMapping TypeName="QuanLyThuVienModel.CHITIETMUONTRA">
         <MappingFragment StoreEntitySet="CHITIETMUONTRA">
@@ -136,6 +110,40 @@
           <ScalarProperty Name="HANTRA" ColumnName="HANTRA" />
           <ScalarProperty Name="NGAYMUON" ColumnName="NGAYMUON" />
           <ScalarProperty Name="MAMUON" ColumnName="MAMUON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCGIAs">
+      <EntityTypeMapping TypeName="QuanLyThuVienModel.DOCGIA">
+        <MappingFragment StoreEntitySet="DOCGIA">
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="MALOP" ColumnName="MALOP" />
+          <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="MASINHVIEN" ColumnName="MASINHVIEN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOPs">
+      <EntityTypeMapping TypeName="QuanLyThuVienModel.LOP">
+        <MappingFragment StoreEntitySet="LOP">
+          <ScalarProperty Name="TENLOP" ColumnName="TENLOP" />
+          <ScalarProperty Name="MALOP" ColumnName="MALOP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIPHAMs">
+      <EntityTypeMapping TypeName="QuanLyThuVienModel.VIPHAM">
+        <MappingFragment StoreEntitySet="VIPHAM">
+          <ScalarProperty Name="HINHTHUCXULY" ColumnName="HINHTHUCXULY" />
+          <ScalarProperty Name="LYDOVP" ColumnName="LYDOVP" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MAVIPHAM" ColumnName="MAVIPHAM" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

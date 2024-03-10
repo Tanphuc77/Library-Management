@@ -1,0 +1,40 @@
+﻿@using LibraryManagement.Models
+@model IEnumerable<THELOAI>
+<div class="header-bottom bg-royal-blue header-sticky stick">
+    <div class="container">
+        <div class="row">
+            <!-- Begin Header Bottom Menu Area -->
+            <div class="col-lg-12 d-none d-lg-block d-xl-block">
+                <!-- FB's Navigation -->
+                <nav class="fb-navigation">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("ListBookLibrary","Home")">Home</a>
+                        </li>
+                        @foreach (var Item in Model)
+                        {
+                            <li >
+                                <a href="@Url.Action("SanPhamTheoLoai","SanPham",new { maLoai = Item.MATHELOAI })">@Item.TENTHELOAI</a>
+                            </li>
+                        }
+                        <li>
+                            <a href="about-us.html">Giới thiệu</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Liên hệ</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!--FB's Navigation -->
+            </div>
+            <!-- Header Bottom Menu Area End Here -->
+        </div>
+        <div class="row">
+            <!-- Begin Mobile Menu Area -->
+            <div class="mobile-menu-area-2 d-lg-none d-xl-none col-12">
+                <div class="mobile-menu mobile-menu"></div>
+            </div>
+            <!-- Mobile Menu Area End Here -->
+        </div>
+    </div>
+</div>
