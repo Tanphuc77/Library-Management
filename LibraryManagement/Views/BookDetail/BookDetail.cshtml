@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "BookDetail";
+    Layout = "~/Views/Layout/UserHome.cshtml";
+}
+<header class="header-2 bg-white">
+    @Html.Partial("~/Views/Layout/Header-top-User.cshtml")
+    @Html.Partial("~/Views/Layout/Header-middle-User.cshtml")
+    @Html.Action("Menu", "Home")
+</header>
+<div class="product-details-area" style="margin: 30px 0">
+    <div class="container">
+        <div class="pdetails bg-white">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="pdetails-images" style="pointer-events: none;">
+                        <div class="pdetails-largeimages pdetails-imagezoom">
+                            <div class="pdetails-singleimage"
+                                 data-src="~/assets/Admin/imgs/Product/@Model.HINHANH">
+                                <img width="500px" height="500px" style="margin: 20px 0 20px 0" src="~/assets/Admin/imgs/Product/@Model.HINHANH"
+                                     alt="product image">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="product-details-view-content mt-20">
+                        <div class="product-info">
+                            <h3 style=" LINE-HEIGHT: 35.2px;">@Model.TENSACH</h3>
+                            <span class="product-details-ref">Lượt xem: @Model.LUOTXEM</span>
+                            <br />
+                            <span class="product-details-ref">Tác giả: @Model.TACGIA</span>
+                            <br />
+                            <span class="product-details-ref">Số lượng tồn: @Model.SOLUONGTON</span>
+                            <div class="footer-widget-social-link footer-widget-social-link-2">
+                                <span>Share</span>
+                                <ul class="social-link">
+                                    <li class="facebook">
+                                        <a href="https://www.facebook.com/" data-bs-toggle="tooltip"
+                                           target="_blank" title="Facebook">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li class="twitter">
+                                        <a href="https://twitter.com/" data-bs-toggle="tooltip" target="_blank"
+                                           title="Twitter">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="youtube">
+                                        <a href="https://www.youtube.com/" data-bs-toggle="tooltip"
+                                           target="_blank" title="Youtube">
+                                            <i class="fa fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                    <li class="google-plus">
+                                        <a href="https://www.plus.google.com/discover" data-bs-toggle="tooltip"
+                                           target="_blank" title="Google Plus">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                    </li>
+                                    <li class="instagram">
+                                        <a href="https://www.instagram.com/" data-bs-toggle="tooltip"
+                                           target="_blank" title="Instagram">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="single-add-to-cart">
+                                <form action="#" class="cart-quantity mt-0">
+                                    <a style="width:25%;margin:15px 0" href="cart.html" class="fb-btn add-to-cart">Thêm vào giỏ hàng</a>
+                                </form>
+                            </div>
+
+                            <hr />
+
+                            <div class="product-desc" style="border:none">
+                                <p>
+                                    <span>
+                                        @Html.Raw(Model.MOTA)
+                                    </span>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Action("BookRelate","BookDetail")
+<div class="fb-branding-wrap pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="fb-branding bg-white">
+                    <div class="fb-branding_active owl-carousel">
+                        <div class="branding-item">
+                            <a href="#">
+                                <img width="100px" height="100px" src="~/assets/images/branding/download.jpg" />
+                            </a>
+                        </div>
+                        <div class="branding-item">
+                            <a href="#">
+                                <img width="100px" height="100px" src="~/assets/images/branding/img-default_d917dfb76c004bc4a7d3b1b19d625d1d_large.jpg" />
+                            </a>
+                        </div>
+                        <div class="branding-item">
+                            <a href="#">
+                                <img width="100px" height="100px" src="~/assets/images/branding/logo-nxb-ldxh.jpg" />
+                            </a>
+                        </div>
+                        <div class="branding-item">
+                            <a href="#">
+                                <img width="100px" height="100px" src="~/assets/images/branding/logo-nxb-phu-nu.jpg" />
+                            </a>
+                        </div>
+                        <div class="branding-item">
+                            <a href="#">
+                                <img width="100px" height="100px" src="~/assets/images/branding/logo-nxb-tre.jpg" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/Layout/Footer-User.cshtml")

@@ -1,0 +1,41 @@
+﻿@using LibraryManagement.Models
+@model IEnumerable<SACH>
+@foreach (var item in Model)
+{
+    <div class="col-lg-3 col-md-4 col-sm-6">
+
+        <div class="single-product">
+            <!-- Begin Product Image Area -->
+            <div class="product-img">
+                <a href="@Url.Action("BookDetail", "BookDetail", new {maTheLoai = item.MATHELOAI, maNhaXuatBan = item.MANHAXUATBAN, maSach = item.MASACH, @tensp = item.TENSACH })">
+                    <img width="250px" height="250px" class="primary-img" src="@Url.Content("~/assets/Admin/imgs/Product/"+item.HINHANH)"
+                         alt="FB'S Prduct">
+                </a>
+            </div>
+            <div class="product-content">
+                <h3 class="product-name">
+                    <a href="@Url.Action("BookDetail", "BookDetail", new {maTheLoai = item.MATHELOAI, maNhaXuatBan = item.MANHAXUATBAN, maSach = item.MASACH, @tensp = item.TENSACH })" class="product-name-link">@item.TENSACH</a>
+                </h3>
+                <div class="product-action">
+                    <ul class="product-action-link">
+                        @if (Session["TaiKhoan"] != null)
+                        {
+                            <li class="shopping-cart_link">
+                                <a href="cart.html"
+                                   title="Shopping Cart">
+                                    <i class="ion-bag"></i>
+                                </a>
+                            </li>
+                        }
+                        <li class="single-product_link">
+                            <a href="@Url.Action("BookDetail", "BookDetail", new {maTheLoai = item.MATHELOAI, maNhaXuatBan = item.MANHAXUATBAN, maSach = item.MASACH, @tensp = item.TENSACH })"
+                               title="Single Product">
+                                <i class="ion-link"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}

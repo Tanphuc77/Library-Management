@@ -55,7 +55,7 @@
                                 @Html.DisplayFor(modelItem => item.TACGIA)
                             </td>
                             <td>
-                                <img src="@Url.Content("~/assest/imgs/Product/"+@item.HINHANH)" alt="Product Image" width="100px;" />
+                                <img src="@Url.Content("~/assets/Admin/imgs/Product/"+@item.HINHANH)" alt="Product Image" width="100px;" />
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.NHAXUATBAN.TENNHAXUATBAN)
@@ -84,3 +84,59 @@
             </li>
         </ul>
 </div>
+<style>
+    .page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .pagination-container .pagination {
+        display: flex;
+    }
+
+    .pagination-item {
+        list-style: none;
+        margin-left: 20px
+    }
+
+    .pagination-item--right {
+        list-style-type: none;
+        float: right;
+        margin-right: 20px
+    }
+
+    .pagination-container {
+        display: flex;
+    }
+
+    .pagination li {
+        list-style: none;
+    }
+
+        .pagination li.active {
+            color: red;
+            list-style: none;
+        }
+
+        .pagination li a {
+            border-radius: 5px;
+            background-color: var(--blue);
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+        }
+
+        .pagination li.active a {
+            color: black;
+            border-radius: 5px;
+            background-color: var(--blue);
+            padding: 10px;
+        }
+
+        .pagination li.PagedList-skipToNext {
+            padding: 0;
+        }
+</style>

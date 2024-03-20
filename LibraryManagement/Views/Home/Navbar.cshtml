@@ -1,31 +1,92 @@
-﻿@using LibraryManagement.Models
+﻿﻿@using LibraryManagement.Models
 @model IEnumerable<NHAXUATBAN>
-<div class="category-menu">
-    <div class="category-heading">
-        <h2 class="categories-toggle"><span>Nhà xuất bản</span></h2>
-    </div>
-    <div id="cate-toggle" class="category-menu-list">
-        <ul>
-            @{
-                int countFirstTen = 0;
-            }
-            @foreach (var item in Model)
-            {
-                if (countFirstTen < 10)
-                {
-                    <li><a href="#"><span><img src="~/assest/User/images/category-thumb/6.png" alt=""></span>@item.TENNHAXUATBAN</a></li>
-                }
-                else
-                {
-                    <li class="rx-child"><a href="#"><span><img src="~/assest/User/images/category-thumb/11.png" alt=""></span>@item.TENNHAXUATBAN</a></li>
-                }
+<div class="slider-with-banner slider-with-category-menu">
+    <div class="container">
+        <div class="row">
+            <!-- Begin Category Menu Area -->
+            <div class="col-xl-3 col-lg-4">
+                <div class="category-menu">
+                    <div class="category-heading">
+                        <h2 class="categories-toggle"><span>Nhà xuất bản</span></h2>
+                    </div>
+                    <div id="cate-toggle" class="category-menu-list">
+                        <ul>
+                            @{
+                                int countFirstTen = 0;
+                            }
+                            @foreach (var item in Model)
+                            {
+                                if (countFirstTen < 10)
+                                {
+                                    <li style=" padding: 3.2px 20px 3.2px 30px;"><a href="@Url.Action("BookPublisher","Home",new {maNhaXuatBan = item.MANHAXUATBAN, name = item.TENNHAXUATBAN})"><span><img src="~/assest/User/images/category-thumb/6.png" alt=""></span>@item.TENNHAXUATBAN</a></li>
+                                }
+                                else
+                                {
+                                    <li style=" padding: 3.2px 20px 3.2px 30px;" class="rx-child"><a href="@Url.Action("BookPublisher","Home",new {maNhaXuatBan = item.MANHAXUATBAN, name = item.TENNHAXUATBAN})"><span><img src="~/assest/User/images/category-thumb/11.png" alt=""></span>@item.TENNHAXUATBAN</a></li>
+                                }
 
-                countFirstTen++;
-            }
-            <li class="rx-parent">
-                <a class="rx-default">Tất cả</a>
-                <a class="rx-show">Thu nhỏ</a>
-            </li>
-        </ul>
+                                countFirstTen++;
+                            }
+                            <li class="rx-parent">
+                                <a class="rx-default">Tất cả</a>
+                                <a class="rx-show">Thu nhỏ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Category Menu Area End Here -->
+            <div class="col-lg-6">
+                <div class="slider-area slider-area-3 pt-sm-30 pt-xs-30">
+                    <div class="slider-active owl-carousel">
+                        <!-- Begin Single Slide Area -->
+                        <div class="single-slide align-center-left  animation-style-01 bg-5">
+                            <div class="slider-progress"></div>
+                            <div class="slider-content">
+                                
+                            </div>
+                        </div>
+                        <!-- Single Slide Area End Here -->
+                        <!-- Begin Single Slide Area -->
+                        <div class="single-slide align-center-left animation-style-02 bg-6">
+                            <div class="slider-progress"></div>
+                            <div class="slider-content">
+                                
+                            </div>
+                        </div>
+                        <!-- Single Slide Area End Here -->
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Area End Here -->
+            <div class="col-lg-3">
+                <div class="row">
+                    <!-- Begin FB's Banner Area -->
+                    <div class="col-lg-12 col-sm-6">
+                        <div class="fb-banner fb-img-hover-effect pt-sm-30 pt-xs-30">
+                            <a href="#">
+                                <img src="~/assets/images/banner/3_1.jpg" alt="FB'S Banner">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-sm-6">
+                        <div class="fb-banner fb-img-hover-effect pt-30">
+                            <a href="#">
+                                <img src="~/assets/images/banner/3_2.jpg" alt="FB'S Banner">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- FB's Banner Area End Here -->
+                    <div class="col-lg-12 col-sm-6">
+                        <div class="fb-banner fb-img-hover-effect pt-30">
+                            <a href="#">
+                                <img src="~/assets/images/banner/3_3.jpg" alt="FB'S Banner">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- FB's Banner Area End Here -->
+                </div>
+            </div>
+        </div>
     </div>
 </div>

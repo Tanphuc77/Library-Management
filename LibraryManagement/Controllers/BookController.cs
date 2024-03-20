@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace LibraryManagement.Controllers
 
         public ActionResult ListBook(int? page)
         {
-            var listBook = db.SACHes.OrderByDescending(m => m.NGAYCAPNHAT).ToList();
+            var listBook = db.SACHes.OrderByDescending(m => m.MASACH).ToList();
             int pageSize = 12;
             int pageNumber = (page ?? 1);
             return View(listBook.ToPagedList(pageNumber, pageSize));
@@ -106,58 +107,49 @@ namespace LibraryManagement.Controllers
             ViewBag.MATHELOAI = new SelectList(db.THELOAIs.OrderBy(m => m.TENTHELOAI), "MATHELOAI", "TENTHELOAI", book.MATHELOAI);
             return View(book);
         }
-        [HttpPost, ValidateInput(false)]
+        [HttpPost]
         public ActionResult EditBook(SACH model, HttpPostedFileBase HinhAnh) // giao thức truyền dữ liệu hình ảnh 
         {
-            ViewBag.MANHAXUATBAN = new SelectList(db.NHAXUATBANs.OrderBy(m => m.TENNHAXUATBAN), "MANHAXUATBAN", "TENNHAXUATBAN", model.MANHAXUATBAN);
-            ViewBag.MATHELOAI = new SelectList(db.THELOAIs.OrderBy(m => m.TENTHELOAI), "MATHELOAI", "TENTHELOAI", model.MATHELOAI);
-            if (HinhAnh != null && HinhAnh.ContentLength > 0)
+            SACH data = db.SACHes.Find(model.MASACH);
+            ViewBag.MANHAXUATBAN = new SelectList(db.NHAXUATBANs.OrderBy(m => m.TENNHAXUATBAN), "MANHAXUATBAN", "TENNHAXUATBAN", data.MANHAXUATBAN);
+            ViewBag.MATHELOAI = new SelectList(db.THELOAIs.OrderBy(m => m.TENTHELOAI), "MATHELOAI", "TENTHELOAI", data.MATHELOAI);
+            if (ModelState.IsValid)
             {
-                var fileName = Path.GetFileName(HinhAnh.FileName);
-                var path = Path.Combine(Server.MapPath("~/assest/imgs/Product/"), fileName);
-                HinhAnh.SaveAs(path);
-                model.HINHANH = fileName;
+                data.TENSACH = model.TENSACH;
+                data.TACGIA = model.TACGIA;
+                data.SOLUONGTON = model.SOLUONGTON;
+                data.MOTA = model.MOTA;
+                data.NGAYCAPNHAT = model.NGAYCAPNHAT;
+                data.SOLUONGMUON = model.SOLUONGMUON;
+                data.LUOTXEM = model.LUOTXEM;
+                data.DAXOA = model.DAXOA;
+                data.MANHAXUATBAN = model.MANHAXUATBAN;
+                data.MATHELOAI = model.MATHELOAI;
+                if (HinhAnh != null && HinhAnh.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(HinhAnh.FileName);
+                    var path = Path.Combine(Server.MapPath("~/assest/imgs/Product/"), fileName);
+                    HinhAnh.SaveAs(path);
+                    model.HINHANH = fileName;
+                }
+                else
+                {
+                    db.Entry(model).State = EntityState.Detached;// // Tách đối tượng hiện tại khỏi context
+                    var book = db.SACHes.Find(model.MASACH);
+                    model.HINHANH = book.HINHANH;
+                    model = book; //Đặt biến model thành đối tượng hiện tại
+                }
+                db.SaveChanges();
+                return RedirectToAction("ListBook");
             }
             else
             {
-                db.Entry(model).State = EntityState.Detached;// // Tách đối tượng hiện tại khỏi context
-                var book = db.SACHes.Find(model.MASACH);
-                model.HINHANH = book.HINHANH;
-                model = book; //Đặt biến model thành đối tượng hiện tại
+                return View(model);
             }
-
-            bool hasError = false;
-
-            if (model.TENSACH == null)
-            {
-                ViewBag.Name = "Tên sách không được để trống";
-                hasError = true;
-            }
-
-            if (model.TACGIA == null)
-            {
-                ViewBag.Author = "Tác giả không được để trống";
-                hasError = true;
-            }
-
-            if (model.SOLUONGTON == null || model.SOLUONGTON < 0)
-            {
-                ViewBag.Quantity = "Số lượng tồn không được để trống và phải lớn hơn 0";
-                hasError = true;
-            }
-
-            if (hasError)
-            {
-                return View();
-            }
-
-            db.Entry(model).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("ListBook");
         }
         public ActionResult DetailBook(int? id)
         {
-            SACH book = db.SACHes.SingleOrDefault(m=>m.MASACH == id);
+            SACH book = db.SACHes.SingleOrDefault(m => m.MASACH == id);
             ViewBag.MANHAXUATBAN = new SelectList(db.NHAXUATBANs.OrderBy(m => m.TENNHAXUATBAN), "MANHAXUATBAN", "TENNHAXUATBAN", book.MANHAXUATBAN);
             ViewBag.MATHELOAI = new SelectList(db.THELOAIs.OrderBy(m => m.TENTHELOAI), "MATHELOAI", "TENTHELOAI", book.MATHELOAI);
             return View(book);
@@ -189,7 +181,7 @@ namespace LibraryManagement.Controllers
 
         // Hàm kiểm tra xác nhận
         private bool ConfirmedToDelete()
-        { 
+        {
             //  true để cho phép xóa
             return true;
         }

@@ -4,12 +4,12 @@
 @model DOCGIA
 @{
     ViewBag.Title = "SingUp";
-    Layout = "~/Views/Layout/User.cshtml";
+    Layout = "~/Views/Layout/UserHome.cshtml";
 }
 <header class="header-2 bg-white">
-    @Html.Partial("~/Views/Layout/Header-top.cshtml")
-    @Html.Partial("~/Views/Layout/Header-middle.cshtml")
-    @Html.Partial("~/Views/Layout/Menu.cshtml")
+    @Html.Partial("~/Views/Layout/Header-top-User.cshtml")
+    @Html.Partial("~/Views/Layout/Header-middle-User.cshtml")
+    @Html.Action("Menu", "Home")
 </header>
 <div class="page-section pt-60 pb-60">
     <div class="container">
@@ -91,6 +91,7 @@
     .validation {
         font-size: 13px;
     }
+
     .custom-dropdown {
         width: 100%;
         background-color: transparent;
@@ -102,9 +103,10 @@
         color: #7a7a7a;
         margin-bottom: 15px;
     }
-    .login-form a{
-        display:none;
-        color:red;
+
+    .login-form a {
+        display: none;
+        color: red;
     }
 </style>
-@Html.Partial("~/Views/Layout/Footer.cshtml")
+@Html.Partial("~/Views/Layout/Footer-User.cshtml")

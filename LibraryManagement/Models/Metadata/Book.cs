@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace LibraryManagement.Models
 { 
@@ -13,16 +14,17 @@ namespace LibraryManagement.Models
         {
             public int MASACH { get; set; }
             [Display(Name = "Tên sách")]
-            //[Required(ErrorMessage = "{0} không được để trống")]
+            [Required(ErrorMessage = "{0} không được để trống")]
             public string TENSACH { get; set; }
             [Display(Name = "Tác giả")]
-            //[Required(ErrorMessage = "{0} không được để trống")]
+            [Required(ErrorMessage = "{0} không được để trống")]
             public string TACGIA { get; set; }
             [Display(Name = "Số lượng tồn")]
-            //[Required(ErrorMessage = "Số lượng tồn không được để trống")]
-            //[Range(0, int.MaxValue, ErrorMessage = "Số lượng tồn phải là số không âm")]
+            [Required(ErrorMessage = "Số lượng tồn không được để trống")]
+            [Range(0, int.MaxValue, ErrorMessage = "Số lượng tồn phải là số không âm")]
             public Nullable<int> SOLUONGTON { get; set; }
             [Display(Name = "Mô tả")]
+            [AllowHtml]
             public string MOTA { get; set; }
             [Display(Name = "Ngày cập nhật")]
             //[DataType(DataType.Date)]

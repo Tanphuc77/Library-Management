@@ -1,4 +1,4 @@
-﻿@using LibraryManagement.Models
+﻿﻿@using LibraryManagement.Models
 @model IEnumerable<THELOAI>
 <div class="header-bottom bg-royal-blue header-sticky stick">
     <div class="container">
@@ -8,20 +8,17 @@
                 <!-- FB's Navigation -->
                 <nav class="fb-navigation">
                     <ul>
-                        <li>
-                            <a href="@Url.Action("ListBookLibrary","Home")">Home</a>
+                        <li class="dropdown-holder">
+                            <a href="@Url.Action("Index","Home")">Home</a>
                         </li>
-                        @foreach (var Item in Model)
+                        @foreach (var item in Model)
                         {
-                            <li >
-                                <a href="@Url.Action("SanPhamTheoLoai","SanPham",new { maLoai = Item.MATHELOAI })">@Item.TENTHELOAI</a>
+                            <li class="dropdown-holder">
+                                <a href="@Url.Action("BooksByGenre","Home",new {maLoai = item.MATHELOAI,theloai = item.TENTHELOAI})">@item.TENTHELOAI</a>
                             </li>
                         }
-                        <li>
-                            <a href="about-us.html">Giới thiệu</a>
-                        </li>
-                        <li>
-                            <a href="contact.html">Liên hệ</a>
+                        <li class="dropdown-holder">
+                            <a href="index.html">Liên hệ</a>
                         </li>
                     </ul>
                 </nav>

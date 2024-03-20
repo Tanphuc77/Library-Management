@@ -1,0 +1,22 @@
+﻿@using LibraryManagement.Models
+@model IEnumerable<NHAXUATBAN>
+@{
+    ViewBag.Title = "NavbarBookPublisher";
+    Layout = "~/Views/Layout/UserHome.cshtml";
+}
+    <!--Begin Sidebar Categores Box Area -->
+    <div class="sidebar-categores-box mt-sm-30 mt-xs-30">
+        <!-- Begin Category Sub Menu Area -->
+        <div class="category-sub-menu">
+            <ul>
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <a href="@Url.Action("BookPublisher","Home",new {maNhaXuatBan = item.MANHAXUATBAN, name = item.TENNHAXUATBAN})">@item.TENNHAXUATBAN</a>
+                    </li>
+                }
+            </ul>
+        </div>
+        <!-- Category Sub Menu Area End Here -->
+    </div>
+

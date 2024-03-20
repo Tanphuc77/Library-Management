@@ -2,12 +2,12 @@
 @model DOCGIA
 @{
     ViewBag.Title = "Login";
-    Layout = "~/Views/Layout/User.cshtml";
+    Layout = "~/Views/Layout/UserHome.cshtml";
 }
 <header class="header-2 bg-white">
-    @Html.Partial("~/Views/Layout/Header-top.cshtml")
-    @Html.Partial("~/Views/Layout/Header-middle.cshtml")
-    @Html.Partial("~/Views/Layout/Menu.cshtml")
+    @Html.Partial("~/Views/Layout/Header-top-User.cshtml")
+    @Html.Partial("~/Views/Layout/Header-middle-User.cshtml")
+    @Html.Action("Menu", "Home")
 </header>
 <div class="page-section pt-60 pb-60">
     <div class="container">
@@ -62,7 +62,7 @@
         </div>
     </div>
 </div>
-@Html.Partial("~/Views/Layout/Footer.cshtml")
+@Html.Partial("~/Views/Layout/Footer-User.cshtml")
 <style>
     .register-button {
         width: 100%;

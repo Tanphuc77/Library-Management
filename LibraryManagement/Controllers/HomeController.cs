@@ -1,16 +1,31 @@
 ﻿using CaptchaMvc.HtmlHelpers;
 using LibraryManagement.Models;
+using PagedList;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI;
+
 namespace LibraryManagement.Controllers
 {
     public class HomeController : Controller
     {
         QuanLyThuVienEntities db = new QuanLyThuVienEntities();
         // GET: Home
-        public ActionResult ListBookLibrary()
+        public ActionResult Index(int? page)
+        {
+            var listBook = db.SACHes.OrderByDescending(m => m.MASACH).ToList();
+            int pageSize = 16;
+            int pageNumber = (page ?? 1);
+            return View(listBook.ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult BookPartial()
         {
             return View();
+        }
+        public ActionResult NewBook()
+        {
+            var book = db.SACHes.Where(s => s.DAXOA == false).OrderByDescending(s => s.NGAYCAPNHAT).Take(10).ToList();
+            return View(book);
         }
         [HttpGet]
         public ActionResult SingUp()
@@ -94,13 +109,38 @@ namespace LibraryManagement.Controllers
         }
         public ActionResult Menu()
         {
-            var listCategory = db.THELOAIs.Where(m=>m.DAXOA== false);
+            var listCategory = db.THELOAIs.Where(m => m.DAXOA == false);
             return View(listCategory);
         }
         public ActionResult Navbar()
         {
-            var listPublisher = db.NHAXUATBANs.Where(m=>m.DAXOA == false);
+            var listPublisher = db.NHAXUATBANs.Where(m => m.DAXOA == false);
             return View(listPublisher);
+        }
+        public ActionResult BooksByGenre(int? maLoai, string name, int? page)
+        {
+            var book = db.SACHes.Where(s => s.MATHELOAI == maLoai && s.DAXOA == false).ToList();
+
+            // Thực hiện phân trang theo loại 
+            int pageSize = 9;// Số sản phẩm có trên trang 
+            int pageNumbber = (page ?? 1); // số trang hiện tại
+
+            ViewBag.MaLoai = maLoai;
+            return View(book.ToPagedList(pageNumbber, pageSize));
+        }
+        public ActionResult NavbarBookPublisher()
+        {
+            var listPublisher = db.NHAXUATBANs.Where(m => m.DAXOA == false);
+            return View(listPublisher);
+        }
+        public ActionResult BookPublisher(int? maNhaXuatBan, string name, int? Page)
+        {
+            var book = db.SACHes.Where(m => m.MANHAXUATBAN == maNhaXuatBan && m.DAXOA == false).ToList();
+            int pageSize = 9;
+            int pageNumbber = (Page ?? 1);
+
+            ViewBag.ManhaxuatBan = maNhaXuatBan;
+            return View(book.ToPagedList(pageNumbber, pageSize));
         }
     }
 }

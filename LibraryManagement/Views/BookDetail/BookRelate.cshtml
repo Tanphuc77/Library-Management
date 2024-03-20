@@ -1,0 +1,49 @@
+﻿﻿@using LibraryManagement.Models
+@model IEnumerable<SACH>
+<div class="fb-product_with_banner fb-featured-pro_with_banner other-product pt-60 pb-60">
+    <div class="container">
+        <div class="other-product-nav bg-white">
+            <div class="fb-section_title-2">
+                <h2>Sách cùng thể loại:</h2>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-lg-12">
+                    <div class="fb-product_wrap bg-white mt-sm-60 mt-xs-60">
+                        <div class="fb-other-product_active owl-carousel">
+                            @foreach (var item in Model)
+                            {
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="@Url.Action("BookDetail", "BookDetail", new {maTheLoai = item.MATHELOAI, maNhaXuatBan = item.MANHAXUATBAN, maSach = item.MASACH, @tensp = item.TENSACH })">
+                                            <img class="primary-img" src="@Url.Content("~/assets/Admin/imgs/Product/" + item.HINHANH)"
+                                                 alt="FB'S Prduct">
+                                        </a>
+                                        <div class="sticker"><span>New</span></div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="product-name">
+                                            <a href="@Url.Action("BookDetail", "BookDetail", new {maTheLoai = item.MATHELOAI, maNhaXuatBan = item.MANHAXUATBAN, maSach = item.MASACH, @tensp = item.TENSACH })" class="product-name-link">@item.TENSACH</a>
+                                        </h3>
+                                        <div class="product-action">
+                                            <ul class="product-action-link">
+                                                @if (Session["TaiKhoan"] != null)
+                                                {
+                                                    <li class="shopping-cart_link"><a href="cart.html" title="Shopping Cart"><i class="ion-bag"></i></a></li>
+                                                }
+                                                else
+                                                {
+                                                    <li class="shopping-cart_link"><a href="cart.html" title="Shopping Cart"><i class="ion-bag"></i></a></li>
+                                                }
+                                                <li class="single-product_link"><a href="@Url.Action("BookDetail", "BookDetail", new {maTheLoai = item.MATHELOAI, maNhaXuatBan = item.MANHAXUATBAN, maSach = item.MASACH, @tensp = item.TENSACH })" title="Single Product"><i class="ion-link"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
