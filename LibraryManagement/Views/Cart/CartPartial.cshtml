@@ -1,0 +1,21 @@
+﻿@using LibraryManagement.Models
+@model List<Cart>
+@{
+    List<Cart> itemGioHangs = (List<Cart>)ViewBag.ListCart;
+}
+<li id="AjaxCart" class="hm-minicart">
+    <div class="hm-minicart-trigger">
+        <span class="item-icon"></span>
+        <span class="item-text">
+            <span class="cart-item-count">@ViewBag.SumQuantity</span>
+        </span>
+    </div>
+    <span></span>
+    <script>
+    $(document).ready(function () {
+        $("#AjaxCart").click(function () {
+            window.location.href = '@Url.Action("SeeCart", "Cart")';
+        });
+    });
+    </script>
+</li>

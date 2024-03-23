@@ -26,6 +26,7 @@ namespace LibraryManagement.Models
         public string DIENTHOAI { get; set; }
         public string EMAIL { get; set; }
         public Nullable<bool> DAXOA { get; set; }
+        public string LOGO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SACH> SACHes { get; set; }

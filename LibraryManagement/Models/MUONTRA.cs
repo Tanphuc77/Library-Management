@@ -33,7 +33,7 @@ namespace LibraryManagement.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETMUONTRA> CHITIETMUONTRAs { get; set; }
-        public virtual THUTHU THUTHU { get; set; }
         public virtual DOCGIA DOCGIA { get; set; }
+        public virtual THUTHU THUTHU { get; set; }
     }
 }

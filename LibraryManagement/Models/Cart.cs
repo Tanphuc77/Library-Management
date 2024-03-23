@@ -26,6 +26,7 @@ namespace LibraryManagement.Models
                 this.MASACH = maSach;
                 SACH book = db.SACHes.Single(m=>m.MASACH == maSach);
                 this.TENSACH = book.TENSACH;
+                this.HINHANH = book.HINHANH;
                 this.MATHELOAI = (int)book.MATHELOAI;
                 this.MANHAXUATBAN = (int)book.MANHAXUATBAN;
             }
@@ -39,6 +40,7 @@ namespace LibraryManagement.Models
                 this.TENSACH = book.TENSACH;
                 this.SOLUONG = soLuong;
                 this.SOLUONG = 1;
+                this.HINHANH = book.HINHANH;
                 this.MATHELOAI = (int)book.MATHELOAI;
                 this.MANHAXUATBAN = (int)book.MANHAXUATBAN;
             }

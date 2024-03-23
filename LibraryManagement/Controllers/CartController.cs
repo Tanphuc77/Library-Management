@@ -72,26 +72,26 @@ namespace LibraryManagement.Controllers
                 return null;
             }
             // Lấy Giỏ Hàng 
-            List<Cart> lstGioHang = CartTake();
+            List<Cart> listCart = CartTake();
             // Sách đã tồn tại ở giỏ hàng 
-            Cart bookCheck = lstGioHang.SingleOrDefault(m => m.MASACH == idBook);
+            Cart bookCheck = listCart.SingleOrDefault(m => m.MASACH == idBook);
             if (bookCheck != null)
             {
                 // kiểm tra số lượng tồn trước khi khách hàng mua hàng 
                 if (book.SOLUONGTON < bookCheck.SOLUONG)
                 {
-                    return View("ThongBao");
+                    return View("Notification");
                 }
                 bookCheck.SOLUONG++;
                 ViewBag.SumQuantity = SumQuantity();
                 return PartialView("CartPartial");
             }
-            Cart itemGioHang = new Cart(idBook);
-            if (book.SOLUONGTON < itemGioHang.SOLUONG)
+            Cart itemCart = new Cart(idBook);
+            if (book.SOLUONGTON < itemCart.SOLUONG)
             {
                 return View("Notification");
             }
-            lstGioHang.Add(itemGioHang);
+            listCart.Add(itemCart);
             ViewBag.SumQuantity = SumQuantity();
             return PartialView("CartPartial");
         }
@@ -148,7 +148,8 @@ namespace LibraryManagement.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            DOCGIA User = new DOCGIA();
+            DOCGIA User = Session["TaiKhoan"] as DOCGIA;
+            //DOCGIA User = new DOCGIA();
             // Thêm đơn mượn
             MUONTRA borrowBooks = new MUONTRA();
             borrowBooks.MADOCGIA = User.ID;

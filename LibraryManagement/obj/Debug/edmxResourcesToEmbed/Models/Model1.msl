@@ -55,6 +55,7 @@
     <EntitySetMapping Name="NHAXUATBANs">
       <EntityTypeMapping TypeName="QuanLyThuVienModel.NHAXUATBAN">
         <MappingFragment StoreEntitySet="NHAXUATBAN">
+          <ScalarProperty Name="LOGO" ColumnName="LOGO" />
           <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
           <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
           <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
@@ -97,19 +98,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="MUONTRAs">
-      <EntityTypeMapping TypeName="QuanLyThuVienModel.MUONTRA">
-        <MappingFragment StoreEntitySet="MUONTRA">
-          <ScalarProperty Name="MATHUTHU" ColumnName="MATHUTHU" />
-          <ScalarProperty Name="MADOCGIA" ColumnName="MADOCGIA" />
-          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
-          <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
-          <ScalarProperty Name="TRANGTHAITRA" ColumnName="TRANGTHAITRA" />
-          <ScalarProperty Name="TRANGTHAIMUON" ColumnName="TRANGTHAIMUON" />
-          <ScalarProperty Name="NGAYTRATHUCTE" ColumnName="NGAYTRATHUCTE" />
-          <ScalarProperty Name="HANTRA" ColumnName="HANTRA" />
-          <ScalarProperty Name="NGAYMUON" ColumnName="NGAYMUON" />
-          <ScalarProperty Name="MAMUON" ColumnName="MAMUON" />
+    <EntitySetMapping Name="LOPs">
+      <EntityTypeMapping TypeName="QuanLyThuVienModel.LOP">
+        <MappingFragment StoreEntitySet="LOP">
+          <ScalarProperty Name="TENLOP" ColumnName="TENLOP" />
+          <ScalarProperty Name="MALOP" ColumnName="MALOP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIPHAMs">
+      <EntityTypeMapping TypeName="QuanLyThuVienModel.VIPHAM">
+        <MappingFragment StoreEntitySet="VIPHAM">
+          <ScalarProperty Name="HINHTHUCXULY" ColumnName="HINHTHUCXULY" />
+          <ScalarProperty Name="LYDOVP" ColumnName="LYDOVP" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MAVIPHAM" ColumnName="MAVIPHAM" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -129,21 +132,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LOPs">
-      <EntityTypeMapping TypeName="QuanLyThuVienModel.LOP">
-        <MappingFragment StoreEntitySet="LOP">
-          <ScalarProperty Name="TENLOP" ColumnName="TENLOP" />
-          <ScalarProperty Name="MALOP" ColumnName="MALOP" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="VIPHAMs">
-      <EntityTypeMapping TypeName="QuanLyThuVienModel.VIPHAM">
-        <MappingFragment StoreEntitySet="VIPHAM">
-          <ScalarProperty Name="HINHTHUCXULY" ColumnName="HINHTHUCXULY" />
-          <ScalarProperty Name="LYDOVP" ColumnName="LYDOVP" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="MAVIPHAM" ColumnName="MAVIPHAM" />
+    <EntitySetMapping Name="MUONTRAs">
+      <EntityTypeMapping TypeName="QuanLyThuVienModel.MUONTRA">
+        <MappingFragment StoreEntitySet="MUONTRA">
+          <ScalarProperty Name="MATHUTHU" ColumnName="MATHUTHU" />
+          <ScalarProperty Name="MADOCGIA" ColumnName="MADOCGIA" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+          <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+          <ScalarProperty Name="TRANGTHAITRA" ColumnName="TRANGTHAITRA" />
+          <ScalarProperty Name="TRANGTHAIMUON" ColumnName="TRANGTHAIMUON" />
+          <ScalarProperty Name="NGAYTRATHUCTE" ColumnName="NGAYTRATHUCTE" />
+          <ScalarProperty Name="HANTRA" ColumnName="HANTRA" />
+          <ScalarProperty Name="NGAYMUON" ColumnName="NGAYMUON" />
+          <ScalarProperty Name="MAMUON" ColumnName="MAMUON" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

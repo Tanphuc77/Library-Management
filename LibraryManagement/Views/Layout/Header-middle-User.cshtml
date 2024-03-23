@@ -1,4 +1,9 @@
-﻿<div class="header-middle">
+﻿
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+<div class="header-middle">
     <div class="container logo-nav">
         <div class="row align-items-center">
             <div class="col-lg-3">
@@ -15,15 +20,7 @@
                         <button class="fb-search_btn" type="submit"><i class="fa fa-search"></i></button>
                     </form>
                     <ul class="hm-menu">
-                        <li class="hm-minicart">
-                            <div class="hm-minicart-trigger">
-                                <span class="item-icon"></span>
-                                <span class="item-text">
-                                    <span class="cart-item-count">2</span>
-                                </span>
-                            </div>
-                            <span></span>
-                        </li>
+                        @Html.Action("CartPartial", "Cart")
                     </ul>
                 </div>
             </div>

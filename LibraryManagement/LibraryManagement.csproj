@@ -452,6 +452,7 @@
     <Content Include="assets\images\branding\logo-nxb-phu-nu.jpg" />
     <Content Include="assets\images\branding\logo-nxb-tre.jpg" />
     <Content Include="assets\images\branding\logo_nxb_header.jpg" />
+    <Content Include="assets\images\cart\empty-cart.png" />
     <Content Include="assets\images\category-thumb\1.png" />
     <Content Include="assets\images\category-thumb\10.png" />
     <Content Include="assets\images\category-thumb\11.png" />
@@ -657,6 +658,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -719,10 +722,11 @@
     <Content Include="Views\BookDetail\BookDetail.cshtml" />
     <Content Include="Views\BookDetail\BookRelate.cshtml" />
     <Content Include="Views\Home\BookPublisher.cshtml" />
+    <Content Include="Views\Cart\CartPartial.cshtml" />
+    <Content Include="Views\Cart\SeeCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

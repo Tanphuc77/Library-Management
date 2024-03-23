@@ -3284,6 +3284,13 @@ li.right-menu .cat-mega-menu-2 > li {
 .product-action li:hover {
     background: #e23e57;
 }
+.ion-bag {
+    color: white;
+}
+
+    .ion-bag:hover {
+        color: white;
+    }
 .product-action li {
     display: block;
     transform: scale(0);

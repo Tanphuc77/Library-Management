@@ -1,0 +1,124 @@
+﻿@using LibraryManagement.Models
+@model List<Cart>
+@{
+    ViewBag.Title = "XemGioHang";
+    Layout = "~/Views/Layout/UserHome.cshtml";
+}
+<header class="header-2 bg-white">
+    @Html.Partial("~/Views/Layout/Header-top-User.cshtml")
+    @Html.Partial("~/Views/Layout/Header-middle-User.cshtml")
+    @Html.Action("Menu", "Home")
+</header>
+@if (Model.Count() == 0)
+{
+    <div class="cart">
+        <div class="cart-item">
+            <div class="empty-cart">
+                <img src="~/assets/images/cart/empty-cart.png" />
+                <div class="empty-cart-text">
+                    <h1>Chưa có sách nào trong giỏ hàng</h1>
+                    <p>Hãy bấm vào nút sách vào giỏ để mượn sách nhé!</p>
+                    <a href="@Url.Action("Index", "Home")" class="fb-btn">Mượn sách ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="Shopping-cart-area pt-60 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-content table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="fb-product-thumbnail">Hình <span style="text-transform: lowercase; ">ảnh</span></th>
+                                    <th class="cart-product-name">Tên <span style="text-transform: lowercase; ">sách</span></th>
+                                    <th class="fb-product-quantity">Số <span style="text-transform: lowercase; ">lượng</span></th>
+                                    <th class="fb-product-remove">Chỉnh sửa</th>
+                                    <th class="fb-product-remove">Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="fb-product-thumbnail" style="width:90px; height:90px;"><img src="@Url.Content("~/assets/Admin/imgs/Product/"+item.HINHANH)" alt="FB's Product Image" /></td>
+                                        <td class="fb-product-name"><a href="@Url.Action("BookDetail", "BookDetail", new {maTheLoai = item.MATHELOAI, maNhaXuatBan = item.MANHAXUATBAN, maSach = item.MASACH, @tensp = item.TENSACH })">@item.TENSACH</a></td>
+                                        <td><span> @item.SOLUONG</span></td>
+                                        <td>
+                                            @Html.ActionLink("Chỉnh sửa", "UpdateCard", new { @maSP = item.MASACH })
+                                        </td>
+                                        <td class="fb-product-remove">
+                                            @Html.ActionLink("x", "XoaGioHang", new { @maSP = item.MASACH })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row" style="margin-top:25px">
+                        <div class="col-md-5 ms-auto" style="margin-top:7px">
+                            <div class="cart-page-total">
+                                <h2 style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Tổng số sách mượn</h2>
+                                <ul>
+                                    <li style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Số lượng <span>@ViewBag.SumQuantity</span></li>
+                                </ul>
+                                @using (Html.BeginForm("BorrowBooks", "Cart"))
+                                {
+                                    <input class="fb-btn" type="submit" value="Mượn sách" id="btnmuahang" style="margin-top:33px;" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@Html.Partial("~/Views/Layout/Footer-User.cshtml")
+<style>
+    .cart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cart-item {
+        margin: 100px;
+        background-color: #fff;
+        width: 500px;
+        box-shadow: 0 2px 10px #c2bebe;
+    }
+
+    .empty-cart {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+        .empty-cart img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+    .empty-cart-text {
+        text-align: center;
+    }
+
+        .empty-cart-text h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .empty-cart-text p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+</style>

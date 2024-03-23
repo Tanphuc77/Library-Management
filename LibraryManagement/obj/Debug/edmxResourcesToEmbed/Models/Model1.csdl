@@ -103,33 +103,33 @@
     </AssociationSet>
     <EntitySet Name="THUTHUs" EntityType="QuanLyThuVienModel.THUTHU" />
     <EntitySet Name="CHITIETMUONTRAs" EntityType="QuanLyThuVienModel.CHITIETMUONTRA" />
+    <AssociationSet Name="FK_CHITIETMUONTRA_SACH" Association="QuanLyThuVienModel.FK_CHITIETMUONTRA_SACH">
+      <End Role="SACH" EntitySet="SACHes" />
+      <End Role="CHITIETMUONTRA" EntitySet="CHITIETMUONTRAs" />
+    </AssociationSet>
+    <EntitySet Name="LOPs" EntityType="QuanLyThuVienModel.LOP" />
+    <EntitySet Name="VIPHAMs" EntityType="QuanLyThuVienModel.VIPHAM" />
+    <EntitySet Name="DOCGIAs" EntityType="QuanLyThuVienModel.DOCGIA" />
     <EntitySet Name="MUONTRAs" EntityType="QuanLyThuVienModel.MUONTRA" />
     <AssociationSet Name="FK_CHITIETMUONTRA_MUONTRA" Association="QuanLyThuVienModel.FK_CHITIETMUONTRA_MUONTRA">
       <End Role="MUONTRA" EntitySet="MUONTRAs" />
       <End Role="CHITIETMUONTRA" EntitySet="CHITIETMUONTRAs" />
     </AssociationSet>
-    <AssociationSet Name="FK_CHITIETMUONTRA_SACH" Association="QuanLyThuVienModel.FK_CHITIETMUONTRA_SACH">
-      <End Role="SACH" EntitySet="SACHes" />
-      <End Role="CHITIETMUONTRA" EntitySet="CHITIETMUONTRAs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MUONTRA_THUTHU" Association="QuanLyThuVienModel.FK_MUONTRA_THUTHU">
-      <End Role="THUTHU" EntitySet="THUTHUs" />
-      <End Role="MUONTRA" EntitySet="MUONTRAs" />
-    </AssociationSet>
-    <EntitySet Name="DOCGIAs" EntityType="QuanLyThuVienModel.DOCGIA" />
-    <EntitySet Name="LOPs" EntityType="QuanLyThuVienModel.LOP" />
-    <EntitySet Name="VIPHAMs" EntityType="QuanLyThuVienModel.VIPHAM" />
     <AssociationSet Name="FK_DOCGIA_LOP" Association="QuanLyThuVienModel.FK_DOCGIA_LOP">
       <End Role="LOP" EntitySet="LOPs" />
       <End Role="DOCGIA" EntitySet="DOCGIAs" />
     </AssociationSet>
-    <AssociationSet Name="FK_MUONTRA_DOCGIA" Association="QuanLyThuVienModel.FK_MUONTRA_DOCGIA">
+    <AssociationSet Name="FK_MUONTRA_DOCGIA1" Association="QuanLyThuVienModel.FK_MUONTRA_DOCGIA1">
       <End Role="DOCGIA" EntitySet="DOCGIAs" />
       <End Role="MUONTRA" EntitySet="MUONTRAs" />
     </AssociationSet>
     <AssociationSet Name="FK_VIPHAM_DOCGIA" Association="QuanLyThuVienModel.FK_VIPHAM_DOCGIA">
       <End Role="DOCGIA" EntitySet="DOCGIAs" />
       <End Role="VIPHAM" EntitySet="VIPHAMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MUONTRA_THUTHU" Association="QuanLyThuVienModel.FK_MUONTRA_THUTHU">
+      <End Role="THUTHU" EntitySet="THUTHUs" />
+      <End Role="MUONTRA" EntitySet="MUONTRAs" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="NHAXUATBAN">
@@ -143,6 +143,7 @@
     <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="DAXOA" Type="Boolean" />
     <NavigationProperty Name="SACHes" Relationship="QuanLyThuVienModel.FK_SACH_NHAXUATBAN1" FromRole="NHAXUATBAN" ToRole="SACH" />
+    <Property Name="LOGO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="THELOAI">
     <Key>
@@ -199,39 +200,9 @@
     <Property Name="MASACH" Type="Int32" />
     <Property Name="TENSACH" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="SOLUONGMUON" Type="Int32" />
-    <NavigationProperty Name="MUONTRA" Relationship="QuanLyThuVienModel.FK_CHITIETMUONTRA_MUONTRA" FromRole="CHITIETMUONTRA" ToRole="MUONTRA" />
     <NavigationProperty Name="SACH" Relationship="QuanLyThuVienModel.FK_CHITIETMUONTRA_SACH" FromRole="CHITIETMUONTRA" ToRole="SACH" />
+    <NavigationProperty Name="MUONTRA" Relationship="QuanLyThuVienModel.FK_CHITIETMUONTRA_MUONTRA" FromRole="CHITIETMUONTRA" ToRole="MUONTRA" />
   </EntityType>
-  <EntityType Name="MUONTRA">
-    <Key>
-      <PropertyRef Name="MAMUON" />
-    </Key>
-    <Property Name="MAMUON" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NGAYMUON" Type="DateTime" Precision="0" />
-    <Property Name="HANTRA" Type="DateTime" Precision="0" />
-    <Property Name="NGAYTRATHUCTE" Type="DateTime" Precision="0" />
-    <Property Name="TRANGTHAIMUON" Type="Boolean" />
-    <Property Name="TRANGTHAITRA" Type="Boolean" />
-    <Property Name="DAXOA" Type="Boolean" />
-    <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="MADOCGIA" Type="Int32" />
-    <Property Name="MATHUTHU" Type="Int32" />
-    <NavigationProperty Name="CHITIETMUONTRAs" Relationship="QuanLyThuVienModel.FK_CHITIETMUONTRA_MUONTRA" FromRole="MUONTRA" ToRole="CHITIETMUONTRA" />
-    <NavigationProperty Name="THUTHU" Relationship="QuanLyThuVienModel.FK_MUONTRA_THUTHU" FromRole="MUONTRA" ToRole="THUTHU" />
-    <NavigationProperty Name="DOCGIA" Relationship="QuanLyThuVienModel.FK_MUONTRA_DOCGIA" FromRole="MUONTRA" ToRole="DOCGIA" />
-  </EntityType>
-  <Association Name="FK_CHITIETMUONTRA_MUONTRA">
-    <End Type="QuanLyThuVienModel.MUONTRA" Role="MUONTRA" Multiplicity="0..1" />
-    <End Type="QuanLyThuVienModel.CHITIETMUONTRA" Role="CHITIETMUONTRA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MUONTRA">
-        <PropertyRef Name="MAMUON" />
-      </Principal>
-      <Dependent Role="CHITIETMUONTRA">
-        <PropertyRef Name="MAMUON" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_CHITIETMUONTRA_SACH">
     <End Type="QuanLyThuVienModel.SACH" Role="SACH" Multiplicity="0..1" />
     <End Type="QuanLyThuVienModel.CHITIETMUONTRA" Role="CHITIETMUONTRA" Multiplicity="*" />
@@ -244,36 +215,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_MUONTRA_THUTHU">
-    <End Type="QuanLyThuVienModel.THUTHU" Role="THUTHU" Multiplicity="0..1" />
-    <End Type="QuanLyThuVienModel.MUONTRA" Role="MUONTRA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="THUTHU">
-        <PropertyRef Name="MATHUTHU" />
-      </Principal>
-      <Dependent Role="MUONTRA">
-        <PropertyRef Name="MATHUTHU" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="DOCGIA">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MASINHVIEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="DIENTHOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="TINHTRANG" Type="Boolean" />
-    <Property Name="MALOP" Type="Int32" />
-    <Property Name="USERNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="LOP" Relationship="QuanLyThuVienModel.FK_DOCGIA_LOP" FromRole="DOCGIA" ToRole="LOP" />
-    <NavigationProperty Name="MUONTRAs" Relationship="QuanLyThuVienModel.FK_MUONTRA_DOCGIA" FromRole="DOCGIA" ToRole="MUONTRA" />
-    <NavigationProperty Name="VIPHAMs" Relationship="QuanLyThuVienModel.FK_VIPHAM_DOCGIA" FromRole="DOCGIA" ToRole="VIPHAM" />
-  </EntityType>
   <EntityType Name="LOP">
     <Key>
       <PropertyRef Name="MALOP" />
@@ -292,6 +233,54 @@
     <Property Name="HINHTHUCXULY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="DOCGIA" Relationship="QuanLyThuVienModel.FK_VIPHAM_DOCGIA" FromRole="VIPHAM" ToRole="DOCGIA" />
   </EntityType>
+  <EntityType Name="DOCGIA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MASINHVIEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DIENTHOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TINHTRANG" Type="Boolean" />
+    <Property Name="MALOP" Type="Int32" />
+    <Property Name="USERNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LOP" Relationship="QuanLyThuVienModel.FK_DOCGIA_LOP" FromRole="DOCGIA" ToRole="LOP" />
+    <NavigationProperty Name="MUONTRAs" Relationship="QuanLyThuVienModel.FK_MUONTRA_DOCGIA1" FromRole="DOCGIA" ToRole="MUONTRA" />
+    <NavigationProperty Name="VIPHAMs" Relationship="QuanLyThuVienModel.FK_VIPHAM_DOCGIA" FromRole="DOCGIA" ToRole="VIPHAM" />
+  </EntityType>
+  <EntityType Name="MUONTRA">
+    <Key>
+      <PropertyRef Name="MAMUON" />
+    </Key>
+    <Property Name="MAMUON" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NGAYMUON" Type="DateTime" Precision="0" />
+    <Property Name="HANTRA" Type="DateTime" Precision="0" />
+    <Property Name="NGAYTRATHUCTE" Type="DateTime" Precision="0" />
+    <Property Name="TRANGTHAIMUON" Type="Boolean" />
+    <Property Name="TRANGTHAITRA" Type="Boolean" />
+    <Property Name="DAXOA" Type="Boolean" />
+    <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MADOCGIA" Type="Int32" />
+    <Property Name="MATHUTHU" Type="Int32" />
+    <NavigationProperty Name="CHITIETMUONTRAs" Relationship="QuanLyThuVienModel.FK_CHITIETMUONTRA_MUONTRA" FromRole="MUONTRA" ToRole="CHITIETMUONTRA" />
+    <NavigationProperty Name="DOCGIA" Relationship="QuanLyThuVienModel.FK_MUONTRA_DOCGIA1" FromRole="MUONTRA" ToRole="DOCGIA" />
+    <NavigationProperty Name="THUTHU" Relationship="QuanLyThuVienModel.FK_MUONTRA_THUTHU" FromRole="MUONTRA" ToRole="THUTHU" />
+  </EntityType>
+  <Association Name="FK_CHITIETMUONTRA_MUONTRA">
+    <End Type="QuanLyThuVienModel.MUONTRA" Role="MUONTRA" Multiplicity="0..1" />
+    <End Type="QuanLyThuVienModel.CHITIETMUONTRA" Role="CHITIETMUONTRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MUONTRA">
+        <PropertyRef Name="MAMUON" />
+      </Principal>
+      <Dependent Role="CHITIETMUONTRA">
+        <PropertyRef Name="MAMUON" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_DOCGIA_LOP">
     <End Type="QuanLyThuVienModel.LOP" Role="LOP" Multiplicity="0..1" />
     <End Type="QuanLyThuVienModel.DOCGIA" Role="DOCGIA" Multiplicity="*" />
@@ -304,7 +293,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_MUONTRA_DOCGIA">
+  <Association Name="FK_MUONTRA_DOCGIA1">
     <End Type="QuanLyThuVienModel.DOCGIA" Role="DOCGIA" Multiplicity="0..1" />
     <End Type="QuanLyThuVienModel.MUONTRA" Role="MUONTRA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -325,6 +314,18 @@
       </Principal>
       <Dependent Role="VIPHAM">
         <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MUONTRA_THUTHU">
+    <End Type="QuanLyThuVienModel.THUTHU" Role="THUTHU" Multiplicity="0..1" />
+    <End Type="QuanLyThuVienModel.MUONTRA" Role="MUONTRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THUTHU">
+        <PropertyRef Name="MATHUTHU" />
+      </Principal>
+      <Dependent Role="MUONTRA">
+        <PropertyRef Name="MATHUTHU" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

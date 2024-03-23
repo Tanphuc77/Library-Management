@@ -93,7 +93,7 @@ namespace LibraryManagement.Controllers
                     if (isPasswordCorrect)
                     {
                         Session["TaiKhoan"] = User;
-                        return RedirectToAction("ListBookLibrary", "Home");
+                        return RedirectToAction("Index", "Home");
                     }
                 }
                 TempData["Notification"] = "Tài khoản hoặc mật khẩu không đúng";

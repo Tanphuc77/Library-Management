@@ -66,6 +66,7 @@
     <Property Name="DIENTHOAI" Type="nvarchar" MaxLength="10" />
     <Property Name="EMAIL" Type="varchar" MaxLength="50" />
     <Property Name="DAXOA" Type="bit" />
+    <Property Name="LOGO" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="PHIEUNHAP">
     <Key>
@@ -170,7 +171,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_MUONTRA_DOCGIA">
+  <Association Name="FK_MUONTRA_DOCGIA1">
     <End Role="DOCGIA" Type="Self.DOCGIA" Multiplicity="0..1" />
     <End Role="MUONTRA" Type="Self.MUONTRA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -279,7 +280,7 @@
       <End Role="LOP" EntitySet="LOP" />
       <End Role="DOCGIA" EntitySet="DOCGIA" />
     </AssociationSet>
-    <AssociationSet Name="FK_MUONTRA_DOCGIA" Association="Self.FK_MUONTRA_DOCGIA">
+    <AssociationSet Name="FK_MUONTRA_DOCGIA1" Association="Self.FK_MUONTRA_DOCGIA1">
       <End Role="DOCGIA" EntitySet="DOCGIA" />
       <End Role="MUONTRA" EntitySet="MUONTRA" />
     </AssociationSet>
