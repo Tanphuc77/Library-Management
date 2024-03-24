@@ -52,7 +52,7 @@ else
                                             @Html.ActionLink("Chỉnh sửa", "UpdateCard", new { @maSP = item.MASACH })
                                         </td>
                                         <td class="fb-product-remove">
-                                            @Html.ActionLink("x", "XoaGioHang", new { @maSP = item.MASACH })
+                                            @Html.ActionLink("x", "RemoveCart", new { @idBook = item.MASACH })
                                         </td>
                                     </tr>
                                 }

@@ -78,19 +78,17 @@ namespace LibraryManagement.Controllers
             if (bookCheck != null)
             {
                 // kiểm tra số lượng tồn trước khi khách hàng mua hàng 
-                if (book.SOLUONGTON < bookCheck.SOLUONG)
+                if (book.SOLUONGTON <= bookCheck.SOLUONG)
                 {
-                    return View("Notification");
+                    // Hiển thị cảnh báo khi số lượng tồn không đủ
+                    string script = "alert('Xin lỗi, số lượng tồn không đủ.');";
+                    return JavaScript(script);
                 }
                 bookCheck.SOLUONG++;
                 ViewBag.SumQuantity = SumQuantity();
                 return PartialView("CartPartial");
             }
             Cart itemCart = new Cart(idBook);
-            if (book.SOLUONGTON < itemCart.SOLUONG)
-            {
-                return View("Notification");
-            }
             listCart.Add(itemCart);
             ViewBag.SumQuantity = SumQuantity();
             return PartialView("CartPartial");
@@ -102,7 +100,7 @@ namespace LibraryManagement.Controllers
                 ViewBag.SumQuantity = 0;
                 return PartialView();
             }
-            ViewBag.SumQuantity = SumQuantity();    
+            ViewBag.SumQuantity = SumQuantity();
             return View();
         }
 

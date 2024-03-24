@@ -28,9 +28,14 @@
                                             <ul class="product-action-link">
                                                 @if (Session["TaiKhoan"] != null)
                                                 {
-                                                    <li class="shopping-cart_link"><a href="cart.html" title="Shopping Cart"><i class="ion-bag"></i></a></li>
+                                                    <li class="shopping-cart_link"> <a href="">@Ajax.ActionLink(" ", "CreateCartAjax", "Cart", new { @idBook = item.MASACH, @strULR = Request.Url.ToString() }, ajaxOptions: new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "AjaxCart", InsertionMode = InsertionMode.Replace }, htmlAttributes: new { @class = "ion-bag my-icon" })</a> </li>
                                                 }
-                                                <li class="single-product_link"><a href="@Url.Action("BookDetail", "BookDetail", new {maTheLoai = item.MATHELOAI, maNhaXuatBan = item.MANHAXUATBAN, maSach = item.MASACH, @tensp = item.TENSACH })" title="Single Product"><i class="ion-link"></i></a></li>
+                                                <li class="single-product_link">
+                                                    <a href="@Url.Action("BookDetail", "BookDetail", new {maTheLoai = item.MATHELOAI, maNhaXuatBan = item.MANHAXUATBAN, maSach = item.MASACH, @tensp = item.TENSACH })"
+                                                       title="Single Product">
+                                                        <i class="ion-link"></i>
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>

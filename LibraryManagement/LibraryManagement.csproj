@@ -724,6 +724,7 @@
     <Content Include="Views\Home\BookPublisher.cshtml" />
     <Content Include="Views\Cart\CartPartial.cshtml" />
     <Content Include="Views\Cart\SeeCart.cshtml" />
+    <Content Include="Views\Cart\Notification.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
