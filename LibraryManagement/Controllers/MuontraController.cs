@@ -13,7 +13,7 @@ namespace LibraryManagement.Controllers
         // GET: Borrowbooks
         public ActionResult ChuaDuyetSach()
         {
-            var notApprovedBook = db.MUONTRAs.Where(m=>m.TRANGTHAIMUON == false).OrderByDescending(m=>m.NGAYMUON).ToList();
+            var notApprovedBook = db.MUONTRAs.Where(m => m.TRANGTHAIMUON == false).OrderByDescending(m => m.NGAYMUON).ToList();
             return View(notApprovedBook);
         }
         [HttpGet]
@@ -55,7 +55,37 @@ namespace LibraryManagement.Controllers
                     book.SOLUONGTON -= item.SOLUONGMUON;
                 }
             }
-            THUTHU librarian = db.THUTHUs.SingleOrDefault(m=>m.MATHUTHU == model.MATHUTHU);
+            THUTHU librarian = db.THUTHUs.SingleOrDefault(m => m.MATHUTHU == model.MATHUTHU);
+            updatePhieuMuon.MATHUTHU = model.MATHUTHU;
+            db.SaveChanges();
+            return RedirectToAction("ChuaDuyetSach");
+        }
+        [HttpGet]
+        public ActionResult HuyPhieuMuon(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            MUONTRA muonTra = db.MUONTRAs.SingleOrDefault(m => m.MAMUON == id);
+            if (muonTra == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Hiển thị chi tiết phiếu lên view
+            var listChiTietMuonSach = db.CHITIETMUONTRAs.Where(m => m.MAMUON == id);
+            ViewBag.ChiTietMuonSach = listChiTietMuonSach;
+
+            return View(muonTra);
+        }
+        [HttpPost]
+        public ActionResult HuyPhieuMuon(MUONTRA model)
+        {
+            // Truy vấn dữ liệu đơn hàng đó
+            MUONTRA updatePhieuMuon = db.MUONTRAs.SingleOrDefault(m => m.MAMUON == model.MAMUON);
+            updatePhieuMuon.DAXOA = true;
+            THUTHU librarian = db.THUTHUs.SingleOrDefault(m => m.MATHUTHU == model.MATHUTHU);
             updatePhieuMuon.MATHUTHU = model.MATHUTHU;
             db.SaveChanges();
             return RedirectToAction("ChuaDuyetSach");
@@ -111,7 +141,7 @@ namespace LibraryManagement.Controllers
             var Acceptance = db.MUONTRAs.Where(m => m.TRANGTHAITRA == true).OrderByDescending(m => m.NGAYMUON).ToList();
             return View(Acceptance);
         }
-        public ActionResult ChiTiet(int ? id)
+        public ActionResult ChiTiet(int? id)
         {
             if (id == null)
             {

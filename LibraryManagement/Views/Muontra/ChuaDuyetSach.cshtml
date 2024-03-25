@@ -49,7 +49,8 @@
                             }
                         </td>
                         <td>
-                            @Html.ActionLink("Duyệt phiếu mượn sách", "DuyetPhieuMuon", new { id = item.MAMUON }, new { @class = "edit-button" })
+                            @Html.ActionLink("Duyệt phiếu mượn sách", "DuyetPhieuMuon", new { id = item.MAMUON }, new { @class = "edit-button" })|
+                            @Html.ActionLink("Hủy phiếu mượn ", "HuyPhieuMuon", new { id = item.MAMUON }, new { @class = "delete-button" })
                         </td>
                     </tr>
                     stt++;

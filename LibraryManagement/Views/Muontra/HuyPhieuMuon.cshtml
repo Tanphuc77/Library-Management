@@ -2,9 +2,9 @@
 @model MUONTRA
 
 @{
-    ViewBag.Title = "DuyetPhieuMuon";
+    ViewBag.Title = "HuyPhieuMuon";
     Layout = "~/Views/Layout/Admin.cshtml";
-    ViewBag.active = 2.5;
+    ViewBag.active = 2;
 }
 @{ IEnumerable<LibraryManagement.Models.CHITIETMUONTRA> chiTietMuonTra = (IEnumerable<LibraryManagement.Models.CHITIETMUONTRA>)ViewBag.ChiTietMuonSach;}
 @Html.Partial("~/Views/Menu/MenuPartial.cshtml")
@@ -23,29 +23,16 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="min-width:150px">
-                                Mã đọc giả:
-                                @Model.DOCGIA.MASINHVIEN
+                            <td>
+                                Tên đọc giả:
+                                @Model.DOCGIA.HOTEN
                             </td>
-                            <td style="min-width:180px">
-                                Tên đọc giả: @Model.DOCGIA.HOTEN
-                            </td>
-                            <td style="min-width:100px">
+                            <td>
                                 Ngày mượn sách:
                                 @Model.NGAYMUON
                             </td>
                             <td>
-                                Ngày trả sách:
-                                @Model.HANTRA
-                            </td>
-                            <td style="min-width:170px">
-                                Trả sách:
-                                @if(Model.TRANGTHAITRA== true) { <span style="color:green">Đã trả</span>}
-                                else {<p>Chưa trả sách</p> }
-                            </td>
-                            <td>
-                                Ngày trả thực tế:
-                                @Model.NGAYTRATHUCTE
+                                Tình trạng cho phép mượn sách: <span style="color:green">Chưa mượn</span>
                             </td>
                         </tr>
                         @foreach (var item in chiTietMuonTra)
@@ -62,16 +49,16 @@
                                 <td style="display:flex;justify-content:center;align-items:center;">
                                     <img width="100" src="@Url.Content("~/assets/Admin/imgs/Product/"+item.SACH.HINHANH)" />
                                 </td>
-                                <td>Thể loại: @item.SACH.THELOAI.TENTHELOAI</td>
-                                <td>Nhà xuất bản: @item.SACH.NHAXUATBAN.TENNHAXUATBAN</td>
-                                <td>
-                                    Tác giả:
-                                    @item.SACH.TACGIA
-                                </td>
                             </tr>
                         }
+
                     </tbody>
                 </table>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Hủy phiếu mượn" class="btn btn-primary" />
+                </div>
             </div>
         </div>
     }
